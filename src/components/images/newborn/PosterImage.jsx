@@ -23,6 +23,18 @@ import mackoBaloniky2 from "assets/images/newborn/macko-baloniky2.png";
 import medvedicaKabelka from "assets/images/newborn/medvedica-kabelka.png";
 import psik from "assets/images/newborn/psik.png";
 import slonikBaloniky from "assets/images/newborn/slonik-baloniky.png";
+import jednorozecHlava from "assets/images/newborn/jednorozec-hlava.png";
+import jednorozecUsi from "assets/images/newborn/jednorozec-usi.png";
+import koala from "assets/images/newborn/koala.png";
+import kocurLodka from "assets/images/newborn/kocur-lodka.png";
+import myskaMotylik from "assets/images/newborn/myska-motylik.png";
+import velrybaFialova from "assets/images/newborn/velryba-fialova.png";
+import velrybaMagic from "assets/images/newborn/velryba-magic.png";
+import zajkoBaloniky from "assets/images/newborn/zajko-baloniky.png";
+import zajkoHviezdicky from "assets/images/newborn/zajko-hviezdicky.png";
+import zajkoLietadlo2 from "assets/images/newborn/zajko-lietadlo2.png";
+import zajkoUsiak from "assets/images/newborn/zajko-usiak.png";
+import zirafaSuperman from "assets/images/newborn/zirafa-superman.png";
 
 export const mainImagesObj = {
   zajkoLietadlo,
@@ -45,6 +57,18 @@ export const mainImagesObj = {
   medvedicaKabelka,
   psik,
   slonikBaloniky,
+  jednorozecHlava,
+  jednorozecUsi,
+  koala,
+  kocurLodka,
+  myskaMotylik,
+  velrybaFialova,
+  velrybaMagic,
+  zajkoBaloniky,
+  zajkoHviezdicky,
+  zajkoLietadlo2,
+  zajkoUsiak,
+  zirafaSuperman,
 };
 
 export const mainImagesArray = Object.values(mainImagesObj);
