@@ -3,6 +3,7 @@ import { formatNumber2Decimals } from "lib/formatNumbers";
 import { textToRgba } from "lib/formatColors";
 import { formatdDateLocal } from "lib/formatDates";
 import { useNewbornStore } from "../PosterStore";
+import PosterImage, { mainImagesArray } from "./PosterImage";
 
 //import "assets/images/newborn/PosterView.css";
 import * as $ from "./PosterView.styled";
@@ -14,23 +15,59 @@ import IconWeight from "./iconWeight";
 import IconLength from "./iconLength";
 
 // Images
-import zajkoslietadlom from "assets/images/newborn/imgZajkoSLietadlom.png";
+import zajkoLietadlo from "assets/images/newborn/zajko-lietadlo.png";
+import slonikPocasie from "assets/images/newborn/slonik-pocasie.png";
+import zirafaOblaciky from "assets/images/newborn/zirafa-oblaciky.png";
+
+const mainImages = {
+  zajkoLietadlo,
+  slonikPocasie,
+  zirafaOblaciky,
+};
 
 const Temp = () => {
-  const name = useNewbornStore((state) => state.name);
-  const date = useNewbornStore((state) => state.date);
-  const time = useNewbornStore((state) => state.time);
-  const weight = useNewbornStore((state) => state.weight);
-  const length = useNewbornStore((state) => state.length);
-  const text = useNewbornStore((state) => state.text);
-  const font = useNewbornStore((state) => state.font);
-  const backgroundColor = useNewbornStore((state) => state.backgroundColor);
-  const mainColor = useNewbornStore((state) => state.mainColor);
-  const borderColor = useNewbornStore((state) => state.borderColor);
-  const frame = useNewbornStore((state) => state.frame);
+  //const mainImage = useNewbornStore((state) => state.mainImage);
+  const {
+    indexImage,
+    name,
+    date,
+    time,
+    weight,
+    length,
+    text,
+    font,
+    backgroundColor,
+    mainColor,
+    borderColor,
+    frame,
+    setIndexImage,
+    increaseIndexImage,
+    decreaseIndexImage,
+  } = useNewbornStore((state) => state);
 
+  const [indexImg, setIndexImg] = useState(indexImage);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const elementRef = useRef(null);
+
+  const handleIndexImage = (type) => () => {
+    const maxIndex = mainImagesArray.length - 1;
+
+    if (type === "inc") {
+      if (indexImage === maxIndex) {
+        setIndexImage(0);
+      } else {
+        increaseIndexImage();
+      }
+    }
+
+    if (type === "dec") {
+      if (indexImage === 0) {
+        setIndexImage(maxIndex);
+      } else {
+        decreaseIndexImage();
+      }
+    }
+  };
 
   const handleResize = () => {
     const elementPoster = elementRef.current;
@@ -44,11 +81,9 @@ const Temp = () => {
 
   useEffect(() => {
     handleResize();
-    window.addEventListener("onload", handleResize);
     window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("onload", handleResize);
       window.removeEventListener("resize", handleResize);
     };
   }, [elementRef, dimensions.width, dimensions.height]);
@@ -66,9 +101,10 @@ const Temp = () => {
       <$.Frame>
         <$.PosterWrap>
           <$.TopContent>
-            <$.BackImageArrow />
-            <$.NextImageArrow />
-            <$.MainImage src={zajkoslietadlom} alt="Vlastný obrázok" />
+            <$.BackImageArrow onClick={handleIndexImage("dec")} />
+            <$.NextImageArrow onClick={handleIndexImage("inc")} />
+            {/* <$.MainImage src={mainImages[mainImage]} alt="Vlastný obrázok" /> */}
+            <PosterImage />
           </$.TopContent>
           <$.BottomContent>
             <$.Name textColor={mainColor} font={font}>

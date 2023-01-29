@@ -107,6 +107,7 @@ export const PosterView = styled.div`
   ${MainImage} {
     width: auto;
     height: ${({ dimensions }) => dimensions.height / 2.25}px;
+    transition: font-size 0.25s ease-out 50ms;
   }
 
   ${Name} {
