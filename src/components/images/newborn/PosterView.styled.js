@@ -24,13 +24,14 @@ export const PosterView = styled.div`
   box-shadow: 5px 5px 15px 5px rgba(128, 128, 128, 0.24);
   font-family: ${({ font }) => formatTextNB(font).font},
     ${({ font }) => formatTextNB(font).fontType};
-  background-color: ${({ backgroundColor }) =>
-    textToRgba(backgroundColor, 0.15)};
+  background-color: #fff;
 
   ${Frame} {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+    background-color: ${({ backgroundColor }) =>
+      textToRgba(backgroundColor, 0.15)};
     border: ${({ dimensions }) => dimensions.height / 500}em solid
       ${({ isFrameActive, backgroundColor, mainColor }) =>
         isFrameActive

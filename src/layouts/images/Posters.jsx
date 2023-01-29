@@ -1,8 +1,8 @@
 import React from "react";
-import "assets/images/Posters.css";
+import * as $ from "./Posters.styled";
 
 const Posters = ({ children }) => {
-  return <main>{children}</main>;
+  return <$.Main>{children}</$.Main>;
 };
 
 export default Posters;

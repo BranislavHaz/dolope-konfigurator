@@ -45,7 +45,6 @@ const Temp = () => {
     decreaseIndexImage,
   } = useNewbornStore((state) => state);
 
-  const [indexImg, setIndexImg] = useState(indexImage);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const elementRef = useRef(null);
 
@@ -103,7 +102,6 @@ const Temp = () => {
           <$.TopContent>
             <$.BackImageArrow onClick={handleIndexImage("dec")} />
             <$.NextImageArrow onClick={handleIndexImage("inc")} />
-            {/* <$.MainImage src={mainImages[mainImage]} alt="Vlastný obrázok" /> */}
             <PosterImage />
           </$.TopContent>
           <$.BottomContent>
