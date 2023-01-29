@@ -35,6 +35,20 @@ import zajkoHviezdicky from "assets/images/newborn/zajko-hviezdicky.png";
 import zajkoLietadlo2 from "assets/images/newborn/zajko-lietadlo2.png";
 import zajkoUsiak from "assets/images/newborn/zajko-usiak.png";
 import zirafaSuperman from "assets/images/newborn/zirafa-superman.png";
+import jelenHlava from "assets/images/newborn/jelen-hlava.png";
+import lanHlava from "assets/images/newborn/lan-hlava.png";
+import kuriatkoHracka from "assets/images/newborn/kuriatko-hracka.png";
+import psikHracka from "assets/images/newborn/psik-hracka.png";
+import zajkoHracka from "assets/images/newborn/zajko-hracka.png";
+import hrad from "assets/images/newborn/hrad.png";
+import dievcatkoHlavicka from "assets/images/newborn/dievcatko-hlavicka.png";
+import chlapecHlavicka from "assets/images/newborn/chlapec-hlavicka.png";
+import dievcatkoKlobucik from "assets/images/newborn/dievcatko-klobucik.png";
+import dievcatkoMacko from "assets/images/newborn/dievcatko-macko.png";
+import dievcatkoRysave from "assets/images/newborn/dievcatko-rysave.png";
+import chlapecOblecenie from "assets/images/newborn/chlapec-oblecenie.png";
+import dievcatkoOblecenie from "assets/images/newborn/dievcatko-oblecenie.png";
+import dievcatkoTopanocky from "assets/images/newborn/dievcatko-topanocky.png";
 
 export const mainImagesObj = {
   zajkoLietadlo,
@@ -69,6 +83,20 @@ export const mainImagesObj = {
   zajkoLietadlo2,
   zajkoUsiak,
   zirafaSuperman,
+  jelenHlava,
+  lanHlava,
+  kuriatkoHracka,
+  psikHracka,
+  zajkoHracka,
+  hrad,
+  dievcatkoHlavicka,
+  chlapecHlavicka,
+  dievcatkoKlobucik,
+  dievcatkoMacko,
+  dievcatkoRysave,
+  chlapecOblecenie,
+  dievcatkoOblecenie,
+  dievcatkoTopanocky,
 };
 
 export const mainImagesArray = Object.values(mainImagesObj);
