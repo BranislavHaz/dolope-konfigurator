@@ -13,7 +13,6 @@ const newbornState = {
   frame: true,
   font: "Amatic SC",
 };
-//
 
 export const useNewbornStore = create(
   devtools((set) => ({
