@@ -3,7 +3,11 @@ import * as pallete from "Variables";
 import { textToRgba } from "lib/formatColors";
 
 export const PosterConfig = styled.div`
-  width: 50%;
+  margin-top: 10%;
+  width: 80%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
 
   form {
     display: flex;
@@ -16,8 +20,30 @@ export const PosterConfig = styled.div`
   }
 `;
 
+export const Title = styled.div`
+  font-family: Poppins;
+  margin-bottom: 5vh;
+`;
+
+export const Title1Line = styled.h1`
+  padding: 0;
+  margin: 0;
+  font-size: 10vh;
+  color: ${pallete.MAINCOLOR};
+  text-transform: uppercase;
+`;
+
+export const Title2Line = styled.h2`
+  padding-left: 0.3em;
+  margin: -0.8em 0 0 0;
+  font-size: 5vh;
+  font-weight: 200;
+  color: #000;
+`;
+
 export const Label = styled.label`
   cursor: ${({ cursor }) => cursor} !important;
+  display: block;
 `;
 
 export const ColorSet = styled.div`

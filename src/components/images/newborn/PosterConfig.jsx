@@ -1,4 +1,5 @@
 import React from "react";
+import SectionDivider from "../SectionDivider";
 
 import { useNewbornStore } from "../PosterStore";
 
@@ -32,13 +33,13 @@ const PosterConfig = () => {
     setFrame(!frame);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <$.PosterConfig>
-      <form onSubmit={handleSubmit}>
+      <$.Title>
+        <$.Title1Line>Vytvor</$.Title1Line>
+        <$.Title2Line>si vlastný dizajn</$.Title2Line>
+      </$.Title>
+      <SectionDivider title="Údaje dieťaťa">
         <$.Label cursor="text">
           Meno:
           <input
@@ -88,7 +89,8 @@ const PosterConfig = () => {
             onChange={(e) => setText(e.target.value)}
           />
         </$.Label>
-        Pozadie:
+      </SectionDivider>
+      <SectionDivider title="Farba pozadia">
         <$.ColorSet>
           <$.Color
             id="blue"
@@ -116,7 +118,17 @@ const PosterConfig = () => {
             isActive={backgroundColor === "white"}
           />
         </$.ColorSet>
-        Hlavná farba:
+        <$.SwitcherWrapper>
+          <$.SwitcherInput
+            id="checkbox"
+            type="checkbox"
+            onChange={handleChangeSwitcher}
+            defaultChecked={true}
+          />
+          <$.SwitcherLabel htmlFor="checkbox" />
+        </$.SwitcherWrapper>
+      </SectionDivider>
+      <SectionDivider title="Hlavná farba">
         <$.ColorSet>
           <$.Color
             id="blue"
@@ -139,6 +151,8 @@ const PosterConfig = () => {
             isActive={mainColor === "beige"}
           />
         </$.ColorSet>
+      </SectionDivider>
+      <SectionDivider title="Typ písma">
         <$.FontSet>
           <$.Font
             id="Amatic SC"
@@ -183,18 +197,8 @@ const PosterConfig = () => {
             {name.split(" ")[0]}
           </$.Font>
         </$.FontSet>
-        Orámovanie:
-        <$.SwitcherWrapper>
-          <$.SwitcherInput
-            id="checkbox"
-            type="checkbox"
-            onChange={handleChangeSwitcher}
-            defaultChecked={true}
-          />
-          <$.SwitcherLabel htmlFor="checkbox" />
-        </$.SwitcherWrapper>
-        <button type="submit">Add to cart</button>
-      </form>
+      </SectionDivider>
+      <button type="submit">Add to cart</button>
     </$.PosterConfig>
   );
 };

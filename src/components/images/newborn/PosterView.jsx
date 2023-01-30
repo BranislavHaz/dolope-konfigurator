@@ -88,70 +88,72 @@ const Temp = () => {
   }, [elementRef, dimensions.width, dimensions.height]);
 
   return (
-    <$.PosterView
-      ref={elementRef}
-      dimensions={dimensions}
-      isFrameActive={frame}
-      mainColor={mainColor}
-      backgroundColor={backgroundColor}
-      borderColor={borderColor}
-      font={font}
-    >
-      <$.Frame>
-        <$.PosterWrap>
-          <$.TopContent>
-            <$.BackImageArrow onClick={handleIndexImage("dec")} />
-            <$.NextImageArrow onClick={handleIndexImage("inc")} />
-            <PosterImage />
-          </$.TopContent>
-          <$.BottomContent>
-            <$.Name textColor={mainColor} font={font}>
-              {name}
-            </$.Name>
-            <$.ElementsWrap>
-              <$.Element>
-                <$.ElementIcon>
-                  <IconDate color={textToRgba(mainColor)} />
-                </$.ElementIcon>
-                <$.ElementText>
-                  <$.Subtitle>Dátum</$.Subtitle>
-                  <$.EditableText>{formatdDateLocal(date)}</$.EditableText>
-                </$.ElementText>
-              </$.Element>
-              <$.Element>
-                <$.ElementText>
-                  <$.Subtitle>Čas</$.Subtitle>
-                  <$.EditableText>{time}</$.EditableText>
-                </$.ElementText>
-                <$.ElementIcon>
-                  <IconTime color={textToRgba(mainColor)} />
-                </$.ElementIcon>
-              </$.Element>
-              <$.Element>
-                <$.ElementIcon>
-                  <IconWeight color={textToRgba(mainColor)} />
-                </$.ElementIcon>
-                <$.ElementText>
-                  <$.Subtitle>Váha</$.Subtitle>
-                  <$.EditableText>{`${formatNumber2Decimals(
-                    weight
-                  )} kg`}</$.EditableText>
-                </$.ElementText>
-              </$.Element>
-              <$.Element>
-                <$.ElementText>
-                  <$.Subtitle>Dĺžka</$.Subtitle>
-                  <$.EditableText>{`${length} cm`}</$.EditableText>
-                </$.ElementText>
-                <$.ElementIcon>
-                  <IconLength color={textToRgba(mainColor)} />
-                </$.ElementIcon>
-              </$.Element>
-            </$.ElementsWrap>
-            <$.CustomText>{text}</$.CustomText>
-          </$.BottomContent>
-        </$.PosterWrap>
-      </$.Frame>
+    <$.PosterView>
+      <$.Poster
+        ref={elementRef}
+        dimensions={dimensions}
+        isFrameActive={frame}
+        mainColor={mainColor}
+        backgroundColor={backgroundColor}
+        borderColor={borderColor}
+        font={font}
+      >
+        <$.Frame>
+          <$.PosterWrap>
+            <$.TopContent>
+              <$.BackImageArrow onClick={handleIndexImage("dec")} />
+              <$.NextImageArrow onClick={handleIndexImage("inc")} />
+              <PosterImage />
+            </$.TopContent>
+            <$.BottomContent>
+              <$.Name textColor={mainColor} font={font}>
+                {name}
+              </$.Name>
+              <$.ElementsWrap>
+                <$.Element>
+                  <$.ElementIcon>
+                    <IconDate color={textToRgba(mainColor)} />
+                  </$.ElementIcon>
+                  <$.ElementText>
+                    <$.Subtitle>Dátum</$.Subtitle>
+                    <$.EditableText>{formatdDateLocal(date)}</$.EditableText>
+                  </$.ElementText>
+                </$.Element>
+                <$.Element>
+                  <$.ElementText>
+                    <$.Subtitle>Čas</$.Subtitle>
+                    <$.EditableText>{time}</$.EditableText>
+                  </$.ElementText>
+                  <$.ElementIcon>
+                    <IconTime color={textToRgba(mainColor)} />
+                  </$.ElementIcon>
+                </$.Element>
+                <$.Element>
+                  <$.ElementIcon>
+                    <IconWeight color={textToRgba(mainColor)} />
+                  </$.ElementIcon>
+                  <$.ElementText>
+                    <$.Subtitle>Váha</$.Subtitle>
+                    <$.EditableText>{`${formatNumber2Decimals(
+                      weight
+                    )} kg`}</$.EditableText>
+                  </$.ElementText>
+                </$.Element>
+                <$.Element>
+                  <$.ElementText>
+                    <$.Subtitle>Dĺžka</$.Subtitle>
+                    <$.EditableText>{`${length} cm`}</$.EditableText>
+                  </$.ElementText>
+                  <$.ElementIcon>
+                    <IconLength color={textToRgba(mainColor)} />
+                  </$.ElementIcon>
+                </$.Element>
+              </$.ElementsWrap>
+              <$.CustomText>{text}</$.CustomText>
+            </$.BottomContent>
+          </$.PosterWrap>
+        </$.Frame>
+      </$.Poster>
     </$.PosterView>
   );
 };

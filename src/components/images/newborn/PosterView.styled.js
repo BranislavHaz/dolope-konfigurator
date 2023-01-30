@@ -19,8 +19,19 @@ export const ElementIcon = styled.div``;
 export const CustomText = styled.div``;
 
 export const PosterView = styled.div`
-  width: 50%;
-  height: ${({ dimensions }) => dimensions.width * 1.43}px;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  z-index: 1;
+`;
+
+export const Poster = styled.div`
+  width: ${({ dimensions }) => dimensions.height / 1.5}px;
+  height: 80vh;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
   box-shadow: 5px 5px 15px 5px rgba(128, 128, 128, 0.24);
   font-family: ${({ font }) => formatTextNB(font).font},
     ${({ font }) => formatTextNB(font).fontType};
@@ -112,7 +123,9 @@ export const PosterView = styled.div`
   }
 
   ${Name} {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: ${({ dimensions }) => dimensions.height / 12}px;
     color: ${({ mainColor }) => textToRgba(mainColor)};
     font-size: ${({ dimensions, font }) =>
@@ -120,12 +133,13 @@ export const PosterView = styled.div`
   }
 
   ${ElementsWrap} {
-    margin-top: 1.5vw;
+    margin-top: ${({ dimensions }) => dimensions.height / 40}px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     justify-content: center;
     align-items: center;
+    text-align: center;
   }
 
   & ${Element} {
