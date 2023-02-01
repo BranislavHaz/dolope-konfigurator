@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
 const newbornState = {
+  size: "a4",
   indexImage: 0,
   name: "Charlotte Házová",
   date: "2003-12-15",
@@ -17,6 +18,7 @@ const newbornState = {
 
 export const useNewbornStore = create(
   devtools((set) => ({
+    setSize: (size) => set({ size }),
     setIndexImage: (indexImage) => set({ indexImage }),
     ...newbornState,
     decreaseIndexImage: () =>

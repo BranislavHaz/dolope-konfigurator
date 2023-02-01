@@ -1,5 +1,6 @@
 import React from "react";
 import SectionDivider from "../SectionDivider";
+import AddToCart from "./AddToCart";
 
 import { useNewbornStore } from "../PosterStore";
 
@@ -7,6 +8,7 @@ import * as $ from "./PosterConfig.styled";
 
 const PosterConfig = () => {
   const {
+    size,
     name,
     date,
     time,
@@ -17,6 +19,7 @@ const PosterConfig = () => {
     mainColor,
     frame,
     font,
+    setSize,
     setName,
     setDate,
     setTime,
@@ -39,7 +42,21 @@ const PosterConfig = () => {
         <$.Title1Line>Vytvor</$.Title1Line>
         <$.Title2Line>si vlastný dizajn</$.Title2Line>
       </$.Title>
-      <SectionDivider title="Údaje dieťaťa">
+      <SectionDivider title="Veľkosť obrazu">
+        <$.SizeWrap>
+          <$.SizeOption onClick={() => setSize("a4")}>
+            <$.Size isActive={size === "a4"}>
+              A4 (210x297 mm) <$.SizePrice>8€</$.SizePrice>
+            </$.Size>
+          </$.SizeOption>
+          <$.SizeOption onClick={() => setSize("a3")}>
+            <$.Size isActive={size === "a3"}>
+              A3 (297x420 mm) <$.SizePrice>13€</$.SizePrice>
+            </$.Size>
+          </$.SizeOption>
+        </$.SizeWrap>
+      </SectionDivider>
+      <SectionDivider title="Údaje drobčeka">
         <$.Label cursor="text">
           Meno:
           <input
@@ -48,41 +65,45 @@ const PosterConfig = () => {
             onChange={(e) => setName(e.target.value)}
           />
         </$.Label>
-        <$.Label cursor="pointer">
-          Dátum:
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
-        </$.Label>
-        <$.Label cursor="pointer">
-          Čas:
-          <input
-            type="time"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-          />
-        </$.Label>
+        <$.LabelFlex>
+          <$.Label cursor="pointer">
+            Dátum:
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </$.Label>
+          <$.Label cursor="pointer">
+            Čas:
+            <input
+              type="time"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+            />
+          </$.Label>
+        </$.LabelFlex>
+        <$.LabelFlex>
+          <$.Label cursor="text">
+            Váha:
+            <input
+              type="number"
+              step="0.01"
+              onChange={(e) => setWeight(e.target.value)}
+              value={weight}
+            />
+          </$.Label>
+          <$.Label cursor="text">
+            Dĺžka:
+            <input
+              type="text"
+              value={length}
+              onChange={(e) => setLength(e.target.value)}
+            />
+          </$.Label>
+        </$.LabelFlex>
         <$.Label cursor="text">
-          Váha:
-          <input
-            type="number"
-            step="0.01"
-            onChange={(e) => setWeight(e.target.value)}
-            value={weight}
-          />
-        </$.Label>
-        <$.Label cursor="text">
-          Dĺžka:
-          <input
-            type="text"
-            value={length}
-            onChange={(e) => setLength(e.target.value)}
-          />
-        </$.Label>
-        <$.Label cursor="text">
-          Text:
+          Odkaz:
           <textarea
             rows="6"
             value={text}
@@ -90,7 +111,31 @@ const PosterConfig = () => {
           />
         </$.Label>
       </SectionDivider>
-      <SectionDivider title="Farba pozadia">
+      <SectionDivider title="Farebná kombinácia">
+        <$.Subtitle>Hlavná farba:</$.Subtitle>
+        <$.ColorSet>
+          <$.Color
+            id="blue"
+            onClick={(e) => setMainColor(e.target.id)}
+            isActive={mainColor === "blue"}
+          />
+          <$.Color
+            id="pink"
+            onClick={(e) => setMainColor(e.target.id)}
+            isActive={mainColor === "pink"}
+          />
+          <$.Color
+            id="gray"
+            onClick={(e) => setMainColor(e.target.id)}
+            isActive={mainColor === "gray"}
+          />
+          <$.Color
+            id="beige"
+            onClick={(e) => setMainColor(e.target.id)}
+            isActive={mainColor === "beige"}
+          />
+        </$.ColorSet>
+        <$.Subtitle>Farba pozadia:</$.Subtitle>
         <$.ColorSet>
           <$.Color
             id="blue"
@@ -118,6 +163,7 @@ const PosterConfig = () => {
             isActive={backgroundColor === "white"}
           />
         </$.ColorSet>
+        <$.Subtitle>Orámovanie:</$.Subtitle>
         <$.SwitcherWrapper>
           <$.SwitcherInput
             id="checkbox"
@@ -127,30 +173,6 @@ const PosterConfig = () => {
           />
           <$.SwitcherLabel htmlFor="checkbox" />
         </$.SwitcherWrapper>
-      </SectionDivider>
-      <SectionDivider title="Hlavná farba">
-        <$.ColorSet>
-          <$.Color
-            id="blue"
-            onClick={(e) => setMainColor(e.target.id)}
-            isActive={mainColor === "blue"}
-          />
-          <$.Color
-            id="pink"
-            onClick={(e) => setMainColor(e.target.id)}
-            isActive={mainColor === "pink"}
-          />
-          <$.Color
-            id="gray"
-            onClick={(e) => setMainColor(e.target.id)}
-            isActive={mainColor === "gray"}
-          />
-          <$.Color
-            id="beige"
-            onClick={(e) => setMainColor(e.target.id)}
-            isActive={mainColor === "beige"}
-          />
-        </$.ColorSet>
       </SectionDivider>
       <SectionDivider title="Typ písma">
         <$.FontSet>
@@ -198,7 +220,7 @@ const PosterConfig = () => {
           </$.Font>
         </$.FontSet>
       </SectionDivider>
-      <button type="submit">Add to cart</button>
+      <AddToCart />
     </$.PosterConfig>
   );
 };
