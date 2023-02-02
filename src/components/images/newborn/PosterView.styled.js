@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import * as vars from "Variables";
 import { textToRgba } from "lib/formatColors";
 import { formatTextNB } from "lib/formatText";
 
@@ -21,14 +22,19 @@ export const CustomText = styled.div``;
 export const PosterView = styled.div`
   width: 100%;
   display: flex;
-  justify-content: end;
   align-items: center;
   z-index: 1;
+
+  @media ${vars.DEVICES.mobileS} {
+    justify-content: center;
+  }
+
+  @media ${vars.DEVICES.laptopL} {
+    justify-content: end;
+  }
 `;
 
 export const Poster = styled.div`
-  width: ${({ dimensions }) => dimensions.height / 1.5}px;
-  height: 80vh;
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
@@ -36,6 +42,16 @@ export const Poster = styled.div`
   font-family: ${({ font }) => formatTextNB(font).font},
     ${({ font }) => formatTextNB(font).fontType};
   background-color: #fff;
+
+  @media ${vars.DEVICES.mobileS} {
+    width: 80vw;
+    height: ${({ dimensions }) => dimensions.width * 1.5}px;
+  }
+
+  @media ${vars.DEVICES.laptop} {
+    width: ${({ dimensions }) => dimensions.height / 1.5}px;
+    height: 80vh;
+  }
 
   ${Frame} {
     width: 100%;
