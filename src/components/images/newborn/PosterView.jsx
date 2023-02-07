@@ -9,10 +9,7 @@ import PosterImage, { mainImagesArray } from "./PosterImage";
 import * as $ from "./PosterView.styled";
 
 // Icons
-import IconDate from "./IconDate";
-import IconTime from "./IconTime";
-import IconWeight from "./iconWeight";
-import IconLength from "./iconLength";
+import Icon from "./Icon";
 
 // Images
 import zajkoLietadlo from "assets/images/newborn/zajko-lietadlo.png";
@@ -28,6 +25,7 @@ const mainImages = {
 const Temp = () => {
   //const mainImage = useNewbornStore((state) => state.mainImage);
   const {
+    size,
     indexImage,
     name,
     date,
@@ -112,7 +110,7 @@ const Temp = () => {
               <$.ElementsWrap>
                 <$.Element>
                   <$.ElementIcon>
-                    <IconDate color={textToRgba(mainColor)} />
+                    <Icon icon="date" color={textToRgba(mainColor)} />
                   </$.ElementIcon>
                   <$.ElementText>
                     <$.Subtitle>Dátum</$.Subtitle>
@@ -125,12 +123,12 @@ const Temp = () => {
                     <$.EditableText>{time}</$.EditableText>
                   </$.ElementText>
                   <$.ElementIcon>
-                    <IconTime color={textToRgba(mainColor)} />
+                    <Icon icon="time" color={textToRgba(mainColor)} />
                   </$.ElementIcon>
                 </$.Element>
                 <$.Element>
                   <$.ElementIcon>
-                    <IconWeight color={textToRgba(mainColor)} />
+                    <Icon icon="weight" color={textToRgba(mainColor)} />
                   </$.ElementIcon>
                   <$.ElementText>
                     <$.Subtitle>Váha</$.Subtitle>
@@ -145,7 +143,7 @@ const Temp = () => {
                     <$.EditableText>{`${length} cm`}</$.EditableText>
                   </$.ElementText>
                   <$.ElementIcon>
-                    <IconLength color={textToRgba(mainColor)} />
+                    <Icon icon="length" color={textToRgba(mainColor)} />
                   </$.ElementIcon>
                 </$.Element>
               </$.ElementsWrap>
@@ -154,6 +152,13 @@ const Temp = () => {
           </$.PosterWrap>
         </$.Frame>
       </$.Poster>
+      <$.PriceWrap>
+        <$.Price>
+          <Icon icon="price" color="#000" />
+          Cena obrazu:{" "}
+          <$.PriceHighlight>{size === "a4" ? "8€" : "13€"}</$.PriceHighlight>
+        </$.Price>
+      </$.PriceWrap>
     </$.PosterView>
   );
 };

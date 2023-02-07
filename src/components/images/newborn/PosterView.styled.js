@@ -25,8 +25,18 @@ export const PosterView = styled.div`
   align-items: center;
   z-index: 1;
 
-  @media ${vars.DEVICES.mobileS} {
+  @media ${vars.DEVICES.mobileS} and (orientation: portrait) {
     justify-content: center;
+    flex-direction: column;
+  }
+
+  @media ${vars.DEVICES.mobileS} and (orientation: landscape) {
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  @media ${vars.DEVICES.laptop} {
+    flex-direction: row;
   }
 
   @media ${vars.DEVICES.laptopL} {
@@ -35,22 +45,27 @@ export const PosterView = styled.div`
 `;
 
 export const Poster = styled.div`
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
   box-shadow: 5px 5px 15px 5px rgba(128, 128, 128, 0.24);
   font-family: ${({ font }) => formatTextNB(font).font},
     ${({ font }) => formatTextNB(font).fontType};
   background-color: #fff;
 
-  @media ${vars.DEVICES.mobileS} {
+  @media ${vars.DEVICES.mobileS} and (orientation: portrait) {
     width: 80vw;
     height: ${({ dimensions }) => dimensions.width * 1.5}px;
   }
 
+  @media ${vars.DEVICES.mobileS} and (orientation: landscape) {
+    width: ${({ dimensions }) => dimensions.height / 1.5}px;
+    height: 65vh;
+  }
+
   @media ${vars.DEVICES.laptop} {
+    position: fixed;
+    top: 50%;
     width: ${({ dimensions }) => dimensions.height / 1.5}px;
     height: 80vh;
+    transform: translateY(-50%);
   }
 
   ${Frame} {
@@ -237,4 +252,50 @@ export const Poster = styled.div`
       dimensions.height / formatTextNB(font).customText}em;
     color: ${({ font }) => formatTextNB(font).textColor};
   }
+`;
+
+export const PriceWrap = styled.div`
+  margin-top: 4vh;
+  display: flex;
+  z-index: 2;
+
+  @media ${vars.DEVICES.mobileS} and (orientation: portrait) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  @media ${vars.DEVICES.mobileS} and (orientation: landscape) {
+    justify-content: end;
+    padding-right: 1rem;
+    position: fixed;
+    bottom: 4rem;
+    right: 0;
+  }
+
+  @media ${vars.DEVICES.laptop} {
+    display: none;
+  }
+`;
+
+export const Price = styled.div`
+  display: flex;
+  align-items: center;
+  font-family: Poppins;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.8rem;
+  border-radius: 15px;
+  background-color: #fff;
+  font-weight: 800;
+
+  svg {
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-right: 0.5rem;
+  }
+`;
+
+export const PriceHighlight = styled.span`
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  color: ${vars.MAINCOLOR};
 `;

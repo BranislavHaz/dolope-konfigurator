@@ -1,9 +1,9 @@
 import React from "react";
 import * as $ from "./SectionDivider.styled";
 
-const SectionDivider = ({ children, title }) => {
+const SectionDivider = ({ children, title, isActive }) => {
   return (
-    <$.SectionDivider>
+    <$.SectionDivider isActive={isActive}>
       <$.Title>{title}</$.Title>
       {children}
     </$.SectionDivider>

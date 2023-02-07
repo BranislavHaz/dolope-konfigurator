@@ -1,6 +1,20 @@
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import * as vars from "Variables";
 import { textToRgba } from "lib/formatColors";
+
+const showAnim = keyframes`
+    0%   {
+        transform: translateY(100vh);
+        display: none;
+    }
+    100%  {
+        transform: translateY(0);
+        display: flex;
+    }`;
+
+const showRule = css`
+  animation: ${showAnim} 0.4s linear forwards;
+`;
 
 export const PosterConfig = styled.div`
   z-index: 1;
@@ -8,33 +22,35 @@ export const PosterConfig = styled.div`
   flex-direction: column;
 
   @media ${vars.DEVICES.mobileS} {
+    justify-content: center;
     width: 100%;
+    min-height: 100vh;
     margin-top: 0;
-    padding: 0 1rem 6rem 1rem;
+    padding: 1rem;
     position: absolute;
-    top: 0;
+    bottom: 0;
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(5px);
+    transform: translateY(100vh);
+    ${({ isActive }) => !isActive && "display: none"};
+    ${({ isActive }) => isActive && showRule};
   }
 
   @media ${vars.DEVICES.laptop} {
+    justify-content: start;
     width: 95%;
+    min-height: auto;
     margin-top: 10%;
     padding: 0;
     position: relative;
     background-color: rgba(255, 255, 255, 0);
     backdrop-filter: none;
+    display: flex;
   }
 
   @media ${vars.DEVICES.laptopL} {
     width: 85%;
   }
-
-  /*   form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  } */
 
   input,
   textarea {
@@ -299,5 +315,23 @@ export const SwitcherInput = styled.input`
       margin-left: 0.2em;
       transition: 0.2s;
     }
+  }
+`;
+
+export const CloseMenu = styled.span`
+  position: fixed;
+  top: 4rem;
+  right: 1rem;
+  font-family: Poppins;
+  font-size: 1.2rem;
+  font-weight: 800;
+  display: ${({ isActive }) => (isActive ? "inline-block" : "none")};
+
+  &::before {
+    content: "X";
+  }
+
+  @media ${vars.DEVICES.laptop} {
+    display: none;
   }
 `;

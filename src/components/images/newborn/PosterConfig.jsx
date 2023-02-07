@@ -19,6 +19,7 @@ const PosterConfig = () => {
     mainColor,
     frame,
     font,
+    menuActive,
     setSize,
     setName,
     setDate,
@@ -30,6 +31,7 @@ const PosterConfig = () => {
     setBackgroundColor,
     setMainColor,
     setFrame,
+    setMenuActive,
   } = useNewbornStore((state) => state);
 
   const handleChangeSwitcher = () => {
@@ -37,12 +39,15 @@ const PosterConfig = () => {
   };
 
   return (
-    <$.PosterConfig>
+    <$.PosterConfig isActive={menuActive}>
       <$.Title>
         <$.Title1Line>Vytvor</$.Title1Line>
         <$.Title2Line>si vlastný dizajn</$.Title2Line>
       </$.Title>
-      <SectionDivider title="Veľkosť obrazu">
+      <SectionDivider
+        title="Veľkosť obrazu"
+        isActive={menuActive === "size" ? true : false}
+      >
         <$.SizeWrap>
           <$.SizeOption onClick={() => setSize("a4")}>
             <$.Size isActive={size === "a4"}>
@@ -56,7 +61,10 @@ const PosterConfig = () => {
           </$.SizeOption>
         </$.SizeWrap>
       </SectionDivider>
-      <SectionDivider title="Údaje drobčeka">
+      <SectionDivider
+        title="Údaje drobčeka"
+        isActive={menuActive === "data" ? true : false}
+      >
         <$.Label cursor="text">
           Meno:
           <input
@@ -111,7 +119,10 @@ const PosterConfig = () => {
           />
         </$.Label>
       </SectionDivider>
-      <SectionDivider title="Farebná kombinácia">
+      <SectionDivider
+        title="Farebná kombinácia"
+        isActive={menuActive === "color" ? true : false}
+      >
         <$.Subtitle>Hlavná farba:</$.Subtitle>
         <$.ColorSet>
           <$.Color
@@ -174,7 +185,10 @@ const PosterConfig = () => {
           <$.SwitcherLabel htmlFor="checkbox" />
         </$.SwitcherWrapper>
       </SectionDivider>
-      <SectionDivider title="Typ písma">
+      <SectionDivider
+        title="Typ písma"
+        isActive={menuActive === "font" ? true : false}
+      >
         <$.FontSet>
           <$.Font
             id="Amatic SC"
@@ -221,6 +235,7 @@ const PosterConfig = () => {
         </$.FontSet>
       </SectionDivider>
       <AddToCart />
+      <$.CloseMenu isActive={menuActive} onClick={() => setMenuActive(false)} />
     </$.PosterConfig>
   );
 };

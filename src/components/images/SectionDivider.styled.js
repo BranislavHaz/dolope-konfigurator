@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import * as pallete from "Variables";
+import * as vars from "Variables";
 
 export const SectionDivider = styled.div`
   padding: 1em 2em;
@@ -10,10 +10,14 @@ export const SectionDivider = styled.div`
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   font-family: Poppins;
   backdrop-filter: blur(5px);
+
+  @media ${vars.DEVICES.mobileS} {
+    display: ${({ isActive }) => (isActive ? "block" : "none")};
+  }
 `;
 
 export const Title = styled.h2`
   font-size: 3vh;
-  text-decoration: underline ${pallete.MAINCOLOR};
+  text-decoration: underline ${vars.MAINCOLOR};
   margin-bottom: 0.5em;
 `;
