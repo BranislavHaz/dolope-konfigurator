@@ -20,6 +20,7 @@ const PosterConfig = () => {
     frame,
     font,
     menuActive,
+    firstLoad,
     setSize,
     setName,
     setDate,
@@ -39,7 +40,7 @@ const PosterConfig = () => {
   };
 
   return (
-    <$.PosterConfig isActive={menuActive}>
+    <$.PosterConfig isActive={menuActive} isFirstLoad={firstLoad}>
       <$.Title>
         <$.Title1Line>Vytvor</$.Title1Line>
         <$.Title2Line>si vlastný dizajn</$.Title2Line>

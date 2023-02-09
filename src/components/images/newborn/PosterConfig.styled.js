@@ -1,8 +1,8 @@
-import styled, { keyframes, css } from "styled-components";
+import styled, { keyframes } from "styled-components";
 import * as vars from "Variables";
 import { textToRgba } from "lib/formatColors";
 
-const showAnim = keyframes`
+const showElement = keyframes`
     0%   {
         transform: translateY(100vh);
         display: none;
@@ -12,9 +12,15 @@ const showAnim = keyframes`
         display: flex;
     }`;
 
-const showRule = css`
-  animation: ${showAnim} 0.4s linear forwards;
-`;
+const hideElement = keyframes`
+    0%  {
+        transform: translateY(0);
+        display: flex;
+    }
+    100%   {
+        transform: translateY(100vh);
+        display: none;
+    }`;
 
 export const PosterConfig = styled.div`
   z-index: 1;
@@ -32,8 +38,11 @@ export const PosterConfig = styled.div`
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(5px);
     transform: translateY(100vh);
-    ${({ isActive }) => !isActive && "display: none"};
-    ${({ isActive }) => isActive && showRule};
+    display: ${({ isFirstLoad, isActive }) =>
+      isFirstLoad ? "none" : isActive ? "flex" : "none"};
+    animation: ${({ isFirstLoad, isActive }) =>
+        isFirstLoad ? "" : isActive ? showElement : hideElement}
+      0.5s forwards;
   }
 
   @media ${vars.DEVICES.laptop} {
@@ -45,7 +54,6 @@ export const PosterConfig = styled.div`
     position: relative;
     background-color: rgba(255, 255, 255, 0);
     backdrop-filter: none;
-    display: flex;
   }
 
   @media ${vars.DEVICES.laptopL} {
