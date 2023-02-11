@@ -45,6 +45,7 @@ const PosterConfig = () => {
         <$.Title1Line>Vytvor</$.Title1Line>
         <$.Title2Line>si vlastný dizajn</$.Title2Line>
       </$.Title>
+      <$.CloseMenu isActive={menuActive} onClick={() => setMenuActive(false)} />
       <SectionDivider
         title="Veľkosť obrazu"
         isActive={menuActive === "size" ? true : false}
@@ -236,7 +237,6 @@ const PosterConfig = () => {
         </$.FontSet>
       </SectionDivider>
       <AddToCart />
-      <$.CloseMenu isActive={menuActive} onClick={() => setMenuActive(false)} />
     </$.PosterConfig>
   );
 };

@@ -5,25 +5,15 @@ import { formatdDateLocal } from "lib/formatDates";
 import { useNewbornStore } from "../PosterStore";
 import PosterImage, { mainImagesArray } from "./PosterImage";
 
+import MobilePrice from "./MobilePrice";
+
 //import "assets/images/newborn/PosterView.css";
 import * as $ from "./PosterView.styled";
 
 // Icons
 import Icon from "./Icon";
 
-// Images
-import zajkoLietadlo from "assets/images/newborn/zajko-lietadlo.png";
-import slonikPocasie from "assets/images/newborn/slonik-pocasie.png";
-import zirafaOblaciky from "assets/images/newborn/zirafa-oblaciky.png";
-
-const mainImages = {
-  zajkoLietadlo,
-  slonikPocasie,
-  zirafaOblaciky,
-};
-
 const Temp = () => {
-  //const mainImage = useNewbornStore((state) => state.mainImage);
   const {
     size,
     indexImage,
@@ -152,13 +142,7 @@ const Temp = () => {
           </$.PosterWrap>
         </$.Frame>
       </$.Poster>
-      <$.PriceWrap>
-        <$.Price>
-          <Icon icon="price" color="#000" />
-          Cena obrazu:{" "}
-          <$.PriceHighlight>{size === "a4" ? "8€" : "13€"}</$.PriceHighlight>
-        </$.Price>
-      </$.PriceWrap>
+      <MobilePrice />
     </$.PosterView>
   );
 };

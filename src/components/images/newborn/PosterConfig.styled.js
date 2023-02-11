@@ -31,11 +31,8 @@ export const PosterConfig = styled.div`
   @media ${vars.DEVICES.mobileS} {
     justify-content: center;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 7rem);
     padding: 1rem;
-    position: absolute;
-    //bottom: 0;
-    background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(5px);
     transform: translateY(100vh);
     display: ${({ isFirstLoad, isActive }) =>
@@ -44,8 +41,20 @@ export const PosterConfig = styled.div`
         isFirstLoad ? "" : isActive ? showElement : hideElement}
       0.5s forwards;
 
-    // -3.5rem MobileNav -3.5rem MobileMenu
-    top: 3.5rem;
+    @media ${vars.DEVICES.mobileS} and (orientation: portrait) {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    @media ${vars.DEVICES.mobileS} and (orientation: landscape) {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0);
+    }
+
+    @media ${vars.DEVICES.laptop} {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0);
+    }
   }
 
   @media ${vars.DEVICES.laptop} {
@@ -53,7 +62,7 @@ export const PosterConfig = styled.div`
     justify-content: start;
     width: 95%;
     height: auto;
-    margin-top: 10%;
+    margin: 10% 0 0 0;
     padding: 0;
     position: relative;
     background-color: rgba(255, 255, 255, 0);
@@ -72,10 +81,20 @@ export const PosterConfig = styled.div`
     border: 1px solid rgba(132, 154, 141, 0.12);
     display: inline-block;
     width: 100%;
-    padding: 0.5em;
     font-family: "Poppins";
 
+    @media ${vars.DEVICES.mobileS} and (orientation: portrait) {
+      padding: 0.3em;
+      font-size: 0.9em;
+    }
+
+    @media ${vars.DEVICES.mobileS} and (orientation: landscape) {
+      padding: 0.3em;
+      font-size: 0.9em;
+    }
+
     @media ${vars.DEVICES.laptop} {
+      padding: 0.5em;
       font-size: 1em;
     }
 
@@ -185,6 +204,10 @@ export const Size = styled.div`
     color: ${({ isActive }) => (isActive ? "#fff" : vars.MAINCOLOR)};
   }
 
+  @media ${vars.DEVICES.mobileS} {
+    font-size: 0.9em;
+  }
+
   @media ${vars.DEVICES.laptop} {
     font-size: 1em;
   }
@@ -197,8 +220,21 @@ export const Size = styled.div`
 export const Label = styled.label`
   cursor: ${({ cursor }) => cursor} !important;
   display: block;
-  margin: 0.5em 0;
-  font-size: 1rem;
+
+  @media ${vars.DEVICES.mobileS} and (orientation: portrait) {
+    margin: 0.3em 0;
+    font-size: 0.9rem;
+  }
+
+  @media ${vars.DEVICES.mobileS} and (orientation: landscape) {
+    margin: 0.2em 0;
+    font-size: 0.9rem;
+  }
+
+  @media ${vars.DEVICES.laptop} {
+    margin: 0.5em 0;
+    font-size: 1rem;
+  }
 `;
 
 export const LabelFlex = styled.div`
@@ -220,12 +256,23 @@ export const LabelFlex = styled.div`
 
 export const ColorSet = styled.div`
   display: flex;
-  margin-bottom: 1.5em;
 `;
 
 export const Subtitle = styled.p`
-  margin: 0.5em 0;
-  font-size: 1em;
+  @media ${vars.DEVICES.mobileS} and (orientation: portrait) {
+    margin: 0.5em 0;
+    font-size: 0.9rem;
+  }
+
+  @media ${vars.DEVICES.mobileS} and (orientation: landscape) {
+    margin: 0.4em 0;
+    font-size: 0.9rem;
+  }
+
+  @media ${vars.DEVICES.laptop} {
+    margin: 0.6em 0;
+    font-size: 1em;
+  }
 `;
 
 export const Color = styled.div`
@@ -240,9 +287,15 @@ export const Color = styled.div`
     box-shadow: inset 0 2px 3px #ddd;
   }
 
-  @media ${vars.DEVICES.mobileS} {
+  @media ${vars.DEVICES.mobileS} and (orientation: portrait) {
     width: 2.3rem;
     height: 2.3rem;
+    margin-right: 0.3rem;
+  }
+
+  @media ${vars.DEVICES.mobileS} and (orientation: landscape) {
+    width: 1.8rem;
+    height: 1.8rem;
     margin-right: 0.3rem;
   }
 
@@ -272,7 +325,17 @@ export const Font = styled.div`
     opacity: 0.8;
   }
 
-  @media ${vars.DEVICES.mobileS} {
+  @media ${vars.DEVICES.mobileS} and (orientation: portrait) {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+
+  @media ${vars.DEVICES.mobileS} and (orientation: landscape) {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+
+  @media ${vars.DEVICES.laptop} {
     font-size: 1.4rem;
     line-height: 2rem;
   }
@@ -287,15 +350,20 @@ export const Font = styled.div`
 
 export const SwitcherWrapper = styled.div`
   position: relative;
-  margin-bottom: 1em;
+
+  @media ${vars.DEVICES.mobileS} {
+    margin-bottom: 0;
+  }
+
+  @media ${vars.DEVICES.laptop} {
+    margin-bottom: 1em;
+  }
 `;
 
 export const SwitcherLabel = styled.label`
   position: absolute;
   top: 0;
   left: 0;
-  width: 5em;
-  height: 2.4em;
   border-radius: 25px;
   background: #bebebe;
   cursor: pointer;
@@ -303,12 +371,31 @@ export const SwitcherLabel = styled.label`
     content: "";
     display: block;
     border-radius: 50%;
-    width: 2em;
-    height: 2em;
-    margin: 0.2em 0.2em 0.2em 2.8em;
     background: #ffffff;
     box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
     transition: 0.2s;
+  }
+
+  @media ${vars.DEVICES.mobileS} {
+    width: 3em;
+    height: 1.6em;
+
+    &::after {
+      width: 1.3em;
+      height: 1.3em;
+      margin: 0.15em 0.55em 0.15em 1.5em;
+    }
+  }
+
+  @media ${vars.DEVICES.laptop} {
+    width: 5em;
+    height: 2.4em;
+
+    &::after {
+      width: 2em;
+      height: 2em;
+      margin: 0.2em 0.2em 0.2em 2.8em;
+    }
   }
 `;
 export const SwitcherInput = styled.input`
@@ -323,25 +410,55 @@ export const SwitcherInput = styled.input`
       content: "";
       display: block;
       border-radius: 50%;
-      width: 2em;
-      height: 2em;
-      margin-left: 0.2em;
       transition: 0.2s;
+    }
+  }
+
+  @media ${vars.DEVICES.mobileS} {
+    &:checked + ${SwitcherLabel} {
+      &::after {
+        width: 1.3em;
+        height: 1.3em;
+        margin-left: 0.2em;
+      }
+    }
+  }
+
+  @media ${vars.DEVICES.laptop} {
+    &:checked + ${SwitcherLabel} {
+      &::after {
+        width: 2em;
+        height: 2em;
+        margin-left: 0.2em;
+      }
     }
   }
 `;
 
 export const CloseMenu = styled.span`
-  position: fixed;
-  top: 4rem;
+  position: absolute;
+  width: 1.6rem;
+  height: 1.6rem;
+  top: 1rem;
   right: 1rem;
+  padding: 0.2rem;
+  border-radius: 50%;
+  border: 0.1rem solid rgba(132, 154, 141, 0.3);
+  background-color: rgba(255, 255, 255, 1);
+
   font-family: Poppins;
-  font-size: 1.2rem;
-  font-weight: 800;
+  font-size: 1.4rem;
   display: ${({ isActive }) => (isActive ? "inline-block" : "none")};
 
+  border-radius: 50%;
+  color: rgba(132, 154, 141, 0.5);
+  z-index: 2;
+
   &::before {
-    content: "X";
+    position: absolute;
+    left: 0.4rem;
+    bottom: -0.25rem;
+    content: "x";
   }
 
   @media ${vars.DEVICES.laptop} {

@@ -4,7 +4,7 @@ import * as vars from "Variables";
 export const Posters = styled.div`
   @media ${vars.DEVICES.mobileS} {
     width: 100%;
-    height: 100vh;
+    //height: 100vh;
     background: rgb(250, 250, 250);
     background: linear-gradient(
       180deg,
@@ -20,12 +20,15 @@ export const Posters = styled.div`
 
 export const Main = styled.main`
   width: 100%;
-  //height: 100%;
 
   @media ${vars.DEVICES.mobileS} {
     background: rgba(255, 255, 255, 0);
     display: flex;
     align-items: center;
+
+    // -3.5rem MobileNav -3.5rem MobileMenu
+    height: calc(100vh - 7rem);
+    margin: 3.5rem 0;
   }
 
   @media ${vars.DEVICES.laptop} {
@@ -39,6 +42,8 @@ export const Main = styled.main`
       #fff 30%,
       #fff 100%
     );
+    margin: 0;
+    height: auto;
   }
 
   @media ${vars.DEVICES.laptopL} {
@@ -77,29 +82,5 @@ export const MainTitle = styled.p`
 
   @media ${vars.DEVICES.laptopL} {
     font-size: 23rem;
-  }
-`;
-
-export const MobileTopBar = styled.div`
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 3.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem;
-  background-color: #fff;
-  border-bottom: 1px solid rgba(179, 179, 179, 0.15);
-  box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.03);
-  z-index: 2;
-
-  svg {
-    width: auto;
-    height: 2.8rem;
-  }
-
-  @media ${vars.DEVICES.laptop} {
-    display: none;
   }
 `;
