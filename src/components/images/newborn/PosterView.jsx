@@ -15,7 +15,6 @@ import Icon from "./Icon";
 
 const Temp = () => {
   const {
-    size,
     indexImage,
     name,
     date,

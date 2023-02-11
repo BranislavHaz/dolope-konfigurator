@@ -1,11 +1,6 @@
 import React from "react";
 import { MainImage } from "./PosterView.styled";
 import { useNewbornStore } from "../PosterStore";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
-
-import "swiper/css";
-import "swiper/css/navigation";
 
 // Images
 import zajkoLietadlo from "assets/images/newborn/zajko-lietadlo.png";
@@ -55,7 +50,7 @@ import chlapecOblecenie from "assets/images/newborn/chlapec-oblecenie.png";
 import dievcatkoOblecenie from "assets/images/newborn/dievcatko-oblecenie.png";
 import dievcatkoTopanocky from "assets/images/newborn/dievcatko-topanocky.png";
 
-export const mainImagesObj = [
+export const mainImagesObj = {
   zajkoLietadlo,
   zirafaOblaciky,
   korytnackaOcean,
@@ -102,40 +97,13 @@ export const mainImagesObj = [
   chlapecOblecenie,
   dievcatkoOblecenie,
   dievcatkoTopanocky,
-];
+};
 
 export const mainImagesArray = Object.values(mainImagesObj);
 
 const PosterImage = () => {
-  const { setIndexImage } = useNewbornStore((state) => state);
-
-  return (
-    <>
-      <Swiper
-        navigation={true}
-        modules={[Navigation]}
-        rewind={true}
-        className="mySwiper"
-        onSlideChange={(e) => setIndexImage(e.activeIndex)}
-      >
-        <SwiperSlide>
-          <MainImage src={mainImagesArray[0]} alt="Vlastný obrázok" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <MainImage src={mainImagesArray[1]} alt="Vlastný obrázok" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <MainImage src={mainImagesArray[2]} alt="Vlastný obrázok" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <MainImage src={mainImagesArray[3]} alt="Vlastný obrázok" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <MainImage src={mainImagesArray[4]} alt="Vlastný obrázok" />
-        </SwiperSlide>
-      </Swiper>
-    </>
-  );
+  const indexImage = useNewbornStore((state) => state.indexImage);
+  return <MainImage src={mainImagesArray[indexImage]} alt="Vlastný obrázok" />;
 };
 
 export default PosterImage;
