@@ -14,6 +14,10 @@ export const SectionDivider = styled.div`
   @media ${vars.DEVICES.mobileS} {
     display: ${({ isActive }) => (isActive ? "block" : "none")};
   }
+
+  @media ${vars.DEVICES.laptop} {
+    display: block;
+  }
 `;
 
 export const Title = styled.h2`

@@ -23,6 +23,7 @@ const hideElement = keyframes`
     }`;
 
 export const PosterConfig = styled.div`
+  //height: 100vh;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -30,11 +31,10 @@ export const PosterConfig = styled.div`
   @media ${vars.DEVICES.mobileS} {
     justify-content: center;
     width: 100%;
-    min-height: 100vh;
-    margin-top: 0;
+    height: 100vh;
     padding: 1rem;
     position: absolute;
-    bottom: 0;
+    //bottom: 0;
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(5px);
     transform: translateY(100vh);
@@ -43,17 +43,22 @@ export const PosterConfig = styled.div`
     animation: ${({ isFirstLoad, isActive }) =>
         isFirstLoad ? "" : isActive ? showElement : hideElement}
       0.5s forwards;
+
+    // -3.5rem MobileNav -3.5rem MobileMenu
+    top: 3.5rem;
   }
 
   @media ${vars.DEVICES.laptop} {
+    display: flex;
     justify-content: start;
     width: 95%;
-    min-height: auto;
+    height: auto;
     margin-top: 10%;
     padding: 0;
     position: relative;
     background-color: rgba(255, 255, 255, 0);
     backdrop-filter: none;
+    transform: translateY(0);
   }
 
   @media ${vars.DEVICES.laptopL} {

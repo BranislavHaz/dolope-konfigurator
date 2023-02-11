@@ -27,12 +27,8 @@ export const MobileMenu = styled.div`
   z-index: 2;
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
 
-  @media ${vars.DEVICES.mobileS} and (orientation: portrait) {
+  @media ${vars.DEVICES.mobileS} {
     height: 3.5rem;
-  }
-
-  @media ${vars.DEVICES.mobileS} and (orientation: landscape) {
-    height: 3rem;
   }
 
   @media ${vars.DEVICES.laptop} {

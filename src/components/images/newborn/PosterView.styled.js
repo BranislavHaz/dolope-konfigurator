@@ -25,9 +25,18 @@ export const PosterView = styled.div`
   align-items: center;
   z-index: 1;
 
+  @media ${vars.DEVICES.mobileS} {
+    // -3.5rem MobileNav -3.5rem MobileMenu
+    height: calc(100vh - 7rem);
+    margin-top: 3.5rem;
+  }
+
   @media ${vars.DEVICES.mobileS} and (orientation: portrait) {
     justify-content: center;
     flex-direction: column;
+    // -3.5rem MobileNav -3.5rem MobileMenu
+    height: calc(100vh - 7rem);
+    margin-top: 3.5rem;
   }
 
   @media ${vars.DEVICES.mobileS} and (orientation: landscape) {
@@ -37,6 +46,7 @@ export const PosterView = styled.div`
 
   @media ${vars.DEVICES.laptop} {
     flex-direction: row;
+    margin-top: 0;
   }
 
   @media ${vars.DEVICES.laptopL} {
