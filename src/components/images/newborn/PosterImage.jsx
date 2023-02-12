@@ -1,5 +1,4 @@
 import React from "react";
-import { MainImage } from "./PosterView.styled";
 import { useNewbornStore } from "../PosterStore";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
@@ -120,8 +119,8 @@ const PosterImage = ({ dimensions }) => {
       >
         {mainImagesArr.map((image, index) => {
           return (
-            <SwiperSlide>
-              <$.MainImage key={index} src={image} alt="Vlastný obrázok" />
+            <SwiperSlide key={index}>
+              <$.MainImage src={image} alt="Vlastný obrázok" />
             </SwiperSlide>
           );
         })}
