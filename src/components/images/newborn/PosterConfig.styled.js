@@ -444,7 +444,7 @@ export const CloseMenu = styled.span`
   padding: 0.2rem;
   border-radius: 50%;
   border: 0.1rem solid rgba(132, 154, 141, 0.3);
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.8);
 
   font-family: Poppins;
   font-size: 1.4rem;

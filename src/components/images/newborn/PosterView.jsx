@@ -3,7 +3,7 @@ import { formatNumber2Decimals } from "lib/formatNumbers";
 import { textToRgba } from "lib/formatColors";
 import { formatdDateLocal } from "lib/formatDates";
 import { useNewbornStore } from "../PosterStore";
-import PosterImage, { mainImagesArray } from "./PosterImage";
+import PosterImage from "./PosterImage";
 
 import MobilePrice from "./MobilePrice";
 
@@ -15,7 +15,6 @@ import Icon from "./Icon";
 
 const Temp = () => {
   const {
-    indexImage,
     name,
     date,
     time,
@@ -27,33 +26,10 @@ const Temp = () => {
     mainColor,
     borderColor,
     frame,
-    setIndexImage,
-    increaseIndexImage,
-    decreaseIndexImage,
   } = useNewbornStore((state) => state);
 
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const elementRef = useRef(null);
-
-  const handleIndexImage = (type) => () => {
-    const maxIndex = mainImagesArray.length - 1;
-
-    if (type === "inc") {
-      if (indexImage === maxIndex) {
-        setIndexImage(0);
-      } else {
-        increaseIndexImage();
-      }
-    }
-
-    if (type === "dec") {
-      if (indexImage === 0) {
-        setIndexImage(maxIndex);
-      } else {
-        decreaseIndexImage();
-      }
-    }
-  };
 
   const handleResize = () => {
     const elementPoster = elementRef.current;
@@ -88,9 +64,7 @@ const Temp = () => {
         <$.Frame>
           <$.PosterWrap>
             <$.TopContent>
-              <$.BackImageArrow onClick={handleIndexImage("dec")} />
-              <$.NextImageArrow onClick={handleIndexImage("inc")} />
-              <PosterImage />
+              <PosterImage dimensions={dimensions} />
             </$.TopContent>
             <$.BottomContent>
               <$.Name textColor={mainColor} font={font}>

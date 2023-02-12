@@ -20,13 +20,9 @@ const newbornState = {
 
 export const useNewbornStore = create(
   devtools((set) => ({
+    ...newbornState,
     setSize: (size) => set({ size }),
     setIndexImage: (indexImage) => set({ indexImage }),
-    ...newbornState,
-    decreaseIndexImage: () =>
-      set((state) => ({ indexImage: state.indexImage - 1 })),
-    increaseIndexImage: () =>
-      set((state) => ({ indexImage: state.indexImage + 1 })),
     setName: (name) => set({ name }),
     setDate: (date) => set({ date }),
     setTime: (time) => set({ time }),

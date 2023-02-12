@@ -19,6 +19,10 @@ export const SectionDivider = styled.div`
   @media ${vars.DEVICES.mobileS} and (orientation: landscape) {
     overflow-y: scroll;
     margin: 0;
+
+    &::-webkit-scrollbar {
+      width: 0 !important;
+    }
   }
 
   @media ${vars.DEVICES.laptop} {

@@ -4,6 +4,8 @@ import { useNewbornStore } from "../PosterStore";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 
+import * as $ from "./PosterImage.styled";
+
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -55,7 +57,7 @@ import chlapecOblecenie from "assets/images/newborn/chlapec-oblecenie.png";
 import dievcatkoOblecenie from "assets/images/newborn/dievcatko-oblecenie.png";
 import dievcatkoTopanocky from "assets/images/newborn/dievcatko-topanocky.png";
 
-export const mainImagesObj = [
+export const mainImagesArr = [
   zajkoLietadlo,
   zirafaOblaciky,
   korytnackaOcean,
@@ -104,13 +106,11 @@ export const mainImagesObj = [
   dievcatkoTopanocky,
 ];
 
-export const mainImagesArray = Object.values(mainImagesObj);
-
-const PosterImage = () => {
+const PosterImage = ({ dimensions }) => {
   const { setIndexImage } = useNewbornStore((state) => state);
 
   return (
-    <>
+    <$.ImageWrap dimensions={dimensions}>
       <Swiper
         navigation={true}
         modules={[Navigation]}
@@ -118,23 +118,15 @@ const PosterImage = () => {
         className="mySwiper"
         onSlideChange={(e) => setIndexImage(e.activeIndex)}
       >
-        <SwiperSlide>
-          <MainImage src={mainImagesArray[0]} alt="Vlastný obrázok" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <MainImage src={mainImagesArray[1]} alt="Vlastný obrázok" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <MainImage src={mainImagesArray[2]} alt="Vlastný obrázok" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <MainImage src={mainImagesArray[3]} alt="Vlastný obrázok" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <MainImage src={mainImagesArray[4]} alt="Vlastný obrázok" />
-        </SwiperSlide>
+        {mainImagesArr.map((image, index) => {
+          return (
+            <SwiperSlide>
+              <$.MainImage key={index} src={image} alt="Vlastný obrázok" />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
-    </>
+    </$.ImageWrap>
   );
 };
 

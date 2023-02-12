@@ -7,8 +7,6 @@ export const Frame = styled.div``;
 export const PosterWrap = styled.div``;
 export const TopContent = styled.div``;
 export const BottomContent = styled.div``;
-export const BackImageArrow = styled.div``;
-export const NextImageArrow = styled.div``;
 export const MainImage = styled.img``;
 export const Name = styled.div``;
 export const ElementsWrap = styled.div``;
@@ -97,55 +95,6 @@ export const Poster = styled.div`
   ${TopContent} {
     text-align: center;
     position: relative;
-  }
-
-  ${BackImageArrow} {
-    width: ${({ dimensions }) => dimensions.width / 2.5}px;
-    height: ${({ dimensions }) => dimensions.height / 2.5}px;
-    position: absolute;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    font-size: ${({ dimensions }) => dimensions.height / 300}em;
-    font-family: Amatic SC, cursive;
-    cursor: pointer;
-    transition: font-size 0.25s ease-out 50ms;
-
-    &::before {
-      content: "<";
-    }
-
-    &:hover {
-      font-size: ${({ dimensions }) => dimensions.height / 200}em;
-    }
-  }
-
-  ${NextImageArrow} {
-    width: ${({ dimensions }) => dimensions.width / 2.5}px;
-    height: ${({ dimensions }) => dimensions.height / 2.5}px;
-    position: absolute;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: ${({ dimensions }) => dimensions.height / 300}em;
-    font-family: Amatic SC, cursive;
-    cursor: pointer;
-    transition: font-size 0.25s ease-out 50ms;
-
-    &::before {
-      content: ">";
-    }
-
-    &:hover {
-      font-size: ${({ dimensions }) => dimensions.height / 200}em;
-    }
   }
 
   ${MainImage} {
