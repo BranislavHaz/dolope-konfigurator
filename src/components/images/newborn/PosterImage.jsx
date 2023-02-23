@@ -55,6 +55,7 @@ import dievcatkoRysave from "assets/images/newborn/dievcatko-rysave.png";
 import chlapecOblecenie from "assets/images/newborn/chlapec-oblecenie.png";
 import dievcatkoOblecenie from "assets/images/newborn/dievcatko-oblecenie.png";
 import dievcatkoTopanocky from "assets/images/newborn/dievcatko-topanocky.png";
+import kidsCollection from "assets/images/newborn/kids-collection.png";
 
 export const mainImagesArr = [
   zajkoLietadlo,
@@ -103,14 +104,17 @@ export const mainImagesArr = [
   chlapecOblecenie,
   dievcatkoOblecenie,
   dievcatkoTopanocky,
+  kidsCollection,
 ];
 
-const PosterImage = ({ dimensions }) => {
-  const { setIndexImage } = useNewbornStore((state) => state);
+const PosterImage = ({ dimensions, isSwiper }) => {
+  const { indexImage, setIndexImage } = useNewbornStore((state) => state);
 
   return (
     <$.ImageWrap dimensions={dimensions}>
       <Swiper
+        initialSlide={indexImage}
+        enabled={isSwiper}
         navigation={true}
         modules={[Navigation]}
         rewind={true}
