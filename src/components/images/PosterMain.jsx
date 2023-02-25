@@ -9,7 +9,7 @@ import Icon from "./newborn/Icon";
 
 import * as $ from "./PosterMain.styled";
 
-const PosterMain = ({ isSwiper }) => {
+const PosterMain = ({ isSwiper, isMain }) => {
   const {
     name,
     date,
@@ -48,6 +48,7 @@ const PosterMain = ({ isSwiper }) => {
 
   return (
     <$.Poster
+      isMain={isMain}
       ref={elementRef}
       dimensions={dimensions}
       isFrameActive={frame}

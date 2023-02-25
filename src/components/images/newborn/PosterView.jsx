@@ -8,7 +8,7 @@ import * as $ from "./PosterView.styled";
 const PosterView = () => {
   return (
     <$.PosterView>
-      <PosterMain isSwiper={true} />
+      <PosterMain isSwiper={true} isMain={true} />
       <MobilePrice />
     </$.PosterView>
   );

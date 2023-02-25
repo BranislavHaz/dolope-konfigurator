@@ -24,7 +24,7 @@ export const Poster = styled.div`
   background-color: #fff;
 
   @media ${vars.DEVICES.mobileS} and (orientation: portrait) {
-    width: 80vw;
+    width: ${({ isMain }) => (isMain ? "80vw" : "55vw")};
     height: ${({ dimensions }) => dimensions.width * 1.5}px;
   }
 
@@ -34,11 +34,13 @@ export const Poster = styled.div`
   }
 
   @media ${vars.DEVICES.laptop} {
-    position: fixed;
-    top: 50%;
     width: ${({ dimensions }) => dimensions.height / 1.5}px;
     height: 80vh;
-    transform: translateY(-50%);
+
+    // isMain
+    position: ${({ isMain }) => isMain && "fixed"};
+    top: ${({ isMain }) => isMain && "50%"};
+    transform: ${({ isMain }) => isMain && "translateY(-50%)"};
   }
 
   ${Frame} {
