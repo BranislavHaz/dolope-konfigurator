@@ -7,7 +7,7 @@ import MobileNav from "components/images/newborn/MobileNav";
 const Posters = ({ children }) => {
   return (
     <$.Posters>
-      <MobileNav />
+      <MobileNav step={1} />
       <$.Main>
         <$.MainTitle>Dolope</$.MainTitle>
         {children}

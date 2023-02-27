@@ -1,13 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import * as $ from "./MobileNav.styled";
 
 import Icon from "components/images/newborn/Icon";
 
-const MobileNav = () => {
+const MobileNav = ({ step }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    // tu bude add to cart to Woo
+
+    navigate("/newborn/krok2");
+  };
+
   return (
-    <$.MobileNav>
+    <$.MobileNav step={step}>
       <Icon icon="logo" color="#fff" />
-      <$.AddToCart>Pridať do košíka</$.AddToCart>
+      <$.AddToCart onClick={handleClick}>Pridať do košíka</$.AddToCart>
     </$.MobileNav>
   );
 };

@@ -3,12 +3,18 @@ import * as vars from "Variables";
 
 export const Page = styled.div`
   width: 100%;
-  margin: 2rem 0;
+  padding: 1.5rem 0;
+  background: linear-gradient(
+    180deg,
+    rgba(250, 250, 250, 1) 45%,
+    rgba(247, 247, 247, 1) 100%
+  );
 `;
 
 export const TitleWrap = styled.div`
   width: 80vw;
-  margin: 0 auto 1rem auto;
+  margin: 0 auto;
+  padding: 3.5rem 0 1rem;
   text-align: center;
 `;
 
@@ -19,6 +25,8 @@ export const Title = styled.h1`
 `;
 
 export const TitleHighlight = styled.span`
+  margin: 0 0.2rem;
+  padding: 0 0.1rem;
   background-color: ${vars.MAINCOLOR};
   color: #fff;
   font-weight: 600;
@@ -55,6 +63,10 @@ export const PriceTitle = styled.span`
   text-align: center;
 `;
 
+export const PriceSize = styled.span`
+  text-transform: uppercase;
+`;
+
 export const PriceWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -88,4 +100,5 @@ export const AddToCart = styled.span`
 export const Reject = styled.div`
   margin-top: 0.6rem;
   font-size: 0.8rem;
+  text-decoration: underline;
 `;

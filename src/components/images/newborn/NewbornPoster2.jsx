@@ -1,6 +1,8 @@
 import React from "react";
+import { useNewbornStore } from "../PosterStore";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectCoverflow } from "swiper";
+import { getFirstImage, getSecondImage } from "utils/ImagesCollection";
 import * as $ from "./NewbornPoster2.styled";
 
 import "swiper/css";
@@ -8,24 +10,36 @@ import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 
 import PosterMain from "../PosterMain";
-import AddToCart from "./AddToCart";
+import PosterCollection from "../PosterCollection";
+import MobileNav from "./MobileNav";
 
 SwiperCore.use([EffectCoverflow]);
 
 const NewbornPoster2 = () => {
+  const { size } = useNewbornStore((state) => state);
+
+  const getOldPrice = () => {
+    return size === "a4" ? 8 * 3 : 13 * 3;
+  };
+
+  const getNewPrice = () => {
+    const oldPrice = getOldPrice();
+    return Math.round(oldPrice * 0.7 * 100) / 100;
+  };
+
   return (
     <$.Page>
+      <MobileNav step={2} />
       <$.TitleWrap>
         <$.Title>
           Kúp si celú sériu 3 obrazov a
-          <$.TitleHighlight> ušetri až 30%</$.TitleHighlight> z celkovej ceny
+          <$.TitleHighlight> ušetri až 30% </$.TitleHighlight>z celkovej ceny
         </$.Title>
       </$.TitleWrap>
       <$.PostersWrap>
         <Swiper
           initialSlide={1}
           navigation
-          clickable
           pagination={{ clickable: true }}
           effect="coverflow"
           coverflowEffect={{
@@ -39,21 +53,24 @@ const NewbornPoster2 = () => {
           centeredSlides
         >
           <SwiperSlide>
-            <PosterMain isSwiper={false} isMain={false} />
+            <PosterCollection isMain={false} order={0} />
           </SwiperSlide>
           <SwiperSlide>
             <PosterMain isSwiper={false} isMain={false} />
           </SwiperSlide>
           <SwiperSlide>
-            <PosterMain isSwiper={false} isMain={false} />
+            <PosterCollection isMain={false} order={1} />
           </SwiperSlide>
         </Swiper>
       </$.PostersWrap>
       <$.Content>
-        <$.PriceTitle>Zvýhodnená cena za všetky 3 obrazy zo série</$.PriceTitle>
+        <$.PriceTitle>
+          Zvýhodnená cena za 3 obrazy vo formáte{" "}
+          <$.PriceSize>{size}</$.PriceSize>
+        </$.PriceTitle>
         <$.PriceWrap>
-          <$.OldPrice>39€</$.OldPrice>
-          <$.NewPrice>27,3€</$.NewPrice>
+          <$.OldPrice>${getOldPrice()}€</$.OldPrice>
+          <$.NewPrice>${getNewPrice()}€</$.NewPrice>
         </$.PriceWrap>
         <$.AddToCart>Pridať do košíka</$.AddToCart>
         <$.Reject>Ďakujem, nemám záujem</$.Reject>

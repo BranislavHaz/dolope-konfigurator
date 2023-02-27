@@ -58,7 +58,7 @@ import dievcatkoTopanocky from "assets/images/newborn/dievcatko-topanocky.png";
 import kidsCollection from "assets/images/newborn/kids-collection.png";
 
 export const mainImagesArr = [
-  zajkoLietadlo,
+  /*   zajkoLietadlo,
   zirafaOblaciky,
   korytnackaOcean,
   liskaMesiacik,
@@ -103,7 +103,7 @@ export const mainImagesArr = [
   dievcatkoRysave,
   chlapecOblecenie,
   dievcatkoOblecenie,
-  dievcatkoTopanocky,
+  dievcatkoTopanocky, */
   kidsCollection,
 ];
 
