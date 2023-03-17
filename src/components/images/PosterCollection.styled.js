@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import * as vars from "Variables";
 import { textToRgba } from "lib/formatColors";
-import { formatTextNB } from "lib/formatText";
 
 export const Frame = styled.div``;
 export const PosterWrap = styled.div``;
-export const PosterImage = styled.img``;
+export const PosterImage = styled.div``;
 
 export const Poster = styled.div`
   box-shadow: 5px 5px 15px 5px rgba(128, 128, 128, 0.24);
@@ -23,12 +22,12 @@ export const Poster = styled.div`
 
   @media ${vars.DEVICES.laptop} {
     width: ${({ dimensions }) => dimensions.height / 1.5}px;
-    height: 80vh;
+    height: 55vh;
 
     // isMain
-    position: ${({ isMain }) => isMain && "fixed"};
+    /*     position: ${({ isMain }) => isMain && "fixed"};
     top: ${({ isMain }) => isMain && "50%"};
-    transform: ${({ isMain }) => isMain && "translateY(-50%)"};
+    transform: ${({ isMain }) => isMain && "translateY(-50%)"}; */
   }
 
   ${Frame} {
@@ -37,13 +36,22 @@ export const Poster = styled.div`
     box-sizing: border-box;
     background-color: ${({ backgroundColor }) =>
       textToRgba(backgroundColor, 0.15)};
-    border: ${({ dimensions }) => dimensions.height / 500}em solid
+    border-width: ${({ isFrameActive, dimensions }) =>
+      isFrameActive ? `${dimensions.height / 500}em` : 0};
+    border-style: ${({ isFrameActive }) => (isFrameActive ? "solid" : "none")};
+    border-color: ${({ isFrameActive, backgroundColor, mainColor }) =>
+      isFrameActive
+        ? backgroundColor !== "white"
+          ? "rgba(255, 255, 255, 1)"
+          : textToRgba(mainColor, 0.15)
+        : "transparent"};
+    /* border: ${({ dimensions }) => dimensions.height / 500}em solid
       ${({ isFrameActive, backgroundColor, mainColor }) =>
-        isFrameActive
-          ? backgroundColor !== "white"
-            ? "rgba(255, 255, 255, 1)"
-            : textToRgba(mainColor, 0.15)
-          : "rgba(255, 255, 255, 0)"};
+      isFrameActive
+        ? backgroundColor !== "white"
+          ? "rgba(255, 255, 255, 1)"
+          : textToRgba(mainColor, 0.15)
+        : "rgba(255, 255, 255, 0)"}; */
   }
 
   ${PosterWrap} {
@@ -52,10 +60,10 @@ export const Poster = styled.div`
     display: flex;
     justify-content: center;
     align-content: end;
-  }
 
-  ${PosterImage} {
-    width: 100%;
-    height: auto;
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 `;

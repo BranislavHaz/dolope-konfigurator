@@ -62,7 +62,7 @@ export const PosterConfig = styled.div`
     justify-content: start;
     width: 95%;
     height: auto;
-    margin: 10% 0 0 0;
+    margin: 10% 0 4rem 0;
     padding: 0;
     position: relative;
     background-color: rgba(255, 255, 255, 0);

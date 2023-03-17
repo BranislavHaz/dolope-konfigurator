@@ -56,6 +56,16 @@ import chlapecOblecenie from "assets/images/newborn/chlapec-oblecenie.png";
 import dievcatkoOblecenie from "assets/images/newborn/dievcatko-oblecenie.png";
 import dievcatkoTopanocky from "assets/images/newborn/dievcatko-topanocky.png";
 import kidsCollection from "assets/images/newborn/kids-collection.png";
+import newbornGirl from "assets/images/newborn/newborn-girl.png";
+import newbornBoho from "assets/images/newborn/newborn-boho.png";
+import traffic from "assets/images/newborn/traffic.png";
+import safari from "assets/images/newborn/safari.png";
+import bunny from "assets/images/newborn/bunny.png";
+import newborn from "assets/images/newborn/newborn.png";
+import baby from "assets/images/newborn/baby.png";
+import indian from "assets/images/newborn/indian.png";
+import owl from "assets/images/newborn/owl.png";
+import sky from "assets/images/newborn/sky.png";
 
 export const mainImagesArr = [
   /*   zajkoLietadlo,
@@ -105,6 +115,16 @@ export const mainImagesArr = [
   dievcatkoOblecenie,
   dievcatkoTopanocky, */
   kidsCollection,
+  newbornGirl,
+  newbornBoho,
+  traffic,
+  safari,
+  bunny,
+  newborn,
+  baby,
+  indian,
+  owl,
+  sky,
 ];
 
 const PosterImage = ({ dimensions, isSwiper }) => {

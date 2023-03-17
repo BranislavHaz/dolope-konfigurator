@@ -3,6 +3,7 @@ import * as vars from "Variables";
 
 export const Page = styled.div`
   width: 100%;
+  min-height: 100vh;
   padding: 1.5rem 0;
   background: linear-gradient(
     180deg,
@@ -16,6 +17,10 @@ export const TitleWrap = styled.div`
   margin: 0 auto;
   padding: 3.5rem 0 1rem;
   text-align: center;
+
+  @media ${vars.DEVICES.laptop} {
+    padding: 1.5rem 0 2rem;
+  }
 `;
 
 export const Title = styled.h1`
@@ -47,6 +52,23 @@ export const PostersWrap = styled.div`
   }
 `;
 
+export const PostersMobile = styled.div`
+  @media ${vars.DEVICES.laptop} {
+    display: none;
+  }
+`;
+
+export const PostersLaptop = styled.div`
+  display: none;
+
+  @media ${vars.DEVICES.laptop} {
+    margin: 1em 0;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+  }
+`;
+
 export const Content = styled.div`
   width: 80vw;
   margin: 1rem auto 0 auto;
@@ -55,6 +77,10 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   font-family: Poppins;
+
+  @media ${vars.DEVICES.laptop} {
+    margin: 2rem auto;
+  }
 `;
 
 export const PriceTitle = styled.span`
@@ -95,10 +121,28 @@ export const AddToCart = styled.span`
   font-weight: 800;
   color: #fff;
   background-color: ${vars.MAINCOLOR};
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+
+  &:hover {
+    background-color: rgb(181, 202, 189, 0.9);
+    font-size: 0.82rem;
+  }
+
+  @media ${vars.DEVICES.laptop} {
+    padding: 1rem;
+  }
 `;
 
 export const Reject = styled.div`
   margin-top: 0.6rem;
   font-size: 0.8rem;
   text-decoration: underline;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+
+  &:hover {
+    font-size: 0.82rem;
+  }
 `;

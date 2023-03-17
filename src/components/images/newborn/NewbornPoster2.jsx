@@ -2,7 +2,6 @@ import React from "react";
 import { useNewbornStore } from "../PosterStore";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectCoverflow } from "swiper";
-import { getFirstImage, getSecondImage } from "utils/ImagesCollection";
 import * as $ from "./NewbornPoster2.styled";
 
 import "swiper/css";
@@ -12,6 +11,7 @@ import "swiper/css/effect-coverflow";
 import PosterMain from "../PosterMain";
 import PosterCollection from "../PosterCollection";
 import MobileNav from "./MobileNav";
+import BackButton from "./BackButton";
 
 SwiperCore.use([EffectCoverflow]);
 
@@ -29,6 +29,7 @@ const NewbornPoster2 = () => {
 
   return (
     <$.Page>
+      <BackButton />
       <MobileNav step={2} />
       <$.TitleWrap>
         <$.Title>
@@ -37,31 +38,38 @@ const NewbornPoster2 = () => {
         </$.Title>
       </$.TitleWrap>
       <$.PostersWrap>
-        <Swiper
-          initialSlide={1}
-          navigation
-          pagination={{ clickable: true }}
-          effect="coverflow"
-          coverflowEffect={{
-            rotate: 50,
-            stretch: 50,
-            depth: 90,
-            modifier: 1,
-            slideShadows: false,
-          }}
-          slidesPerView={1.7}
-          centeredSlides
-        >
-          <SwiperSlide>
-            <PosterCollection isMain={false} order={0} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PosterMain isSwiper={false} isMain={false} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PosterCollection isMain={false} order={1} />
-          </SwiperSlide>
-        </Swiper>
+        <$.PostersMobile>
+          <Swiper
+            initialSlide={1}
+            navigation
+            pagination={{ clickable: true }}
+            effect="coverflow"
+            coverflowEffect={{
+              rotate: 50,
+              stretch: 50,
+              depth: 90,
+              modifier: 1,
+              slideShadows: false,
+            }}
+            slidesPerView={1.7}
+            centeredSlides
+          >
+            <SwiperSlide>
+              <PosterCollection order={0} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <PosterMain isSwiper={false} isMain={false} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <PosterCollection order={1} />
+            </SwiperSlide>
+          </Swiper>
+        </$.PostersMobile>
+        <$.PostersLaptop>
+          <PosterCollection order={0} />
+          <PosterMain isSwiper={false} isMain={false} />
+          <PosterCollection order={1} />
+        </$.PostersLaptop>
       </$.PostersWrap>
       <$.Content>
         <$.PriceTitle>
@@ -69,10 +77,10 @@ const NewbornPoster2 = () => {
           <$.PriceSize>{size}</$.PriceSize>
         </$.PriceTitle>
         <$.PriceWrap>
-          <$.OldPrice>${getOldPrice()}€</$.OldPrice>
-          <$.NewPrice>${getNewPrice()}€</$.NewPrice>
+          <$.OldPrice>{getOldPrice()}€</$.OldPrice>
+          <$.NewPrice>{getNewPrice()}€</$.NewPrice>
         </$.PriceWrap>
-        <$.AddToCart>Pridať do košíka</$.AddToCart>
+        <$.AddToCart>Kúpiť celú sériu</$.AddToCart>
         <$.Reject>Ďakujem, nemám záujem</$.Reject>
       </$.Content>
     </$.Page>

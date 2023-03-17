@@ -48,6 +48,7 @@ const PosterMain = ({ isSwiper, isMain }) => {
 
   return (
     <$.Poster
+      isSwiper={isSwiper}
       isMain={isMain}
       ref={elementRef}
       dimensions={dimensions}

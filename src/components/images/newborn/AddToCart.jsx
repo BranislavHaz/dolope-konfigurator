@@ -13,7 +13,7 @@ const AddToCart = () => {
 
   return (
     <$.ButtonWrapper>
-      <$.Button onClick={handleClick}>Vložiť do košíka</$.Button>
+      <$.Button onClick={handleClick}>Pridať do košíka</$.Button>
     </$.ButtonWrapper>
   );
 };

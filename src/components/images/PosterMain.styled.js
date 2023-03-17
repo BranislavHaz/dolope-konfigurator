@@ -35,7 +35,7 @@ export const Poster = styled.div`
 
   @media ${vars.DEVICES.laptop} {
     width: ${({ dimensions }) => dimensions.height / 1.5}px;
-    height: 80vh;
+    height: ${({ isSwiper }) => (isSwiper ? "80vh" : "55vh")};
 
     // isMain
     position: ${({ isMain }) => isMain && "fixed"};

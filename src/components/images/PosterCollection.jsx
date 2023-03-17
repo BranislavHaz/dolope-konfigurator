@@ -2,17 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import ImagesCollection from "utils/ImagesCollection";
 import { useNewbornStore } from "./PosterStore";
 
-// Images
-import kidsCollection1 from "assets/images/newborn/kids-collection1.png";
-import kidsCollection2 from "assets/images/newborn/kids-collection2.png";
-
 import * as $ from "./PosterCollection.styled";
 
-const PosterCollection = ({ isMain, order }) => {
+const PosterCollection = ({ order }) => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const elementRef = useRef(null);
 
-  const { backgroundColor, borderColor, frame } = useNewbornStore(
+  const { backgroundColor, borderColor, frame, mainColor } = useNewbornStore(
     (state) => state
   );
 
@@ -37,16 +33,16 @@ const PosterCollection = ({ isMain, order }) => {
 
   return (
     <$.Poster
-      isMain={isMain}
       ref={elementRef}
       dimensions={dimensions}
       isFrameActive={frame}
+      mainColor={mainColor}
       backgroundColor={backgroundColor}
       borderColor={borderColor}
     >
       <$.Frame>
         <$.PosterWrap>
-          <ImagesCollection order={order} />
+          <ImagesCollection order={order} dimensions={dimensions} />
         </$.PosterWrap>
       </$.Frame>
     </$.Poster>
