@@ -8,15 +8,13 @@ const MobileNav = ({ step }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    // tu bude add to cart to Woo
-
     navigate("/newborn/krok2");
   };
 
   return (
     <$.MobileNav step={step}>
       <Icon icon="logo" color="#fff" />
-      <$.AddToCart onClick={handleClick}>Pridať do košíka</$.AddToCart>
+      <$.NextButton onClick={handleClick}>Pokračovať</$.NextButton>
     </$.MobileNav>
   );
 };

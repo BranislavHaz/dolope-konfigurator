@@ -1,37 +1,10 @@
 import styled from "styled-components";
 import * as vars from "Variables";
 
-export const ButtonWrapper = styled.div`
-  width: 100%;
-  justify-content: end;
-
-  @media ${vars.DEVICES.mobileS} {
-    display: none;
-  }
-
-  @media ${vars.DEVICES.laptop} {
-    display: flex;
-  }
-`;
-
-export const Button = styled.button`
-  /*   margin: 2rem 0 4rem 0;
-  background-color: ${vars.MAINCOLOR};
-  color: #fff;
-  font-size: 1em;
-  font-family: Poppins;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-
-  &:hover {
-    background-color: rgb(181, 202, 189, 0.9);
-  } */
+export const Accept = styled.span`
   margin-top: 1rem;
   padding: 0.6rem 0.6rem;
   border-radius: 10px;
-  border: none;
-  font-family: Poppins;
   font-size: 0.8rem;
   font-weight: 800;
   color: #fff;
@@ -47,5 +20,17 @@ export const Button = styled.button`
 
   @media ${vars.DEVICES.laptop} {
     padding: 1rem;
+  }
+`;
+
+export const Reject = styled.div`
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+
+  &:hover {
+    font-size: 0.82rem;
   }
 `;

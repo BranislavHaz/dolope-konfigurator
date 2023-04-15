@@ -12,6 +12,7 @@ import PosterMain from "../PosterMain";
 import PosterCollection from "../PosterCollection";
 import MobileNav from "./MobileNav";
 import BackButton from "./BackButton";
+import AddToCart from "./AddToCart";
 
 SwiperCore.use([EffectCoverflow]);
 
@@ -26,6 +27,8 @@ const NewbornPoster2 = () => {
     const oldPrice = getOldPrice();
     return Math.round(oldPrice * 0.7 * 100) / 100;
   };
+
+  const addToCart = (type) => {};
 
   return (
     <$.Page>
@@ -80,8 +83,9 @@ const NewbornPoster2 = () => {
           <$.OldPrice>{getOldPrice()}€</$.OldPrice>
           <$.NewPrice>{getNewPrice()}€</$.NewPrice>
         </$.PriceWrap>
-        <$.AddToCart>Kúpiť celú sériu</$.AddToCart>
-        <$.Reject>Ďakujem, nemám záujem</$.Reject>
+        <AddToCart />
+        {/* <$.AddToCart>Kúpiť celú sériu</$.AddToCart>
+        <$.Reject>Ďakujem, chcem len 1 obraz</$.Reject> */}
       </$.Content>
     </$.Page>
   );

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import * as vars from "Variables";
 
-export const AddToCart = styled.div``;
+export const NextButton = styled.div``;
 
 export const MobileNav = styled.div`
   position: fixed;
@@ -22,7 +22,7 @@ export const MobileNav = styled.div`
     height: 2.8rem;
   }
 
-  ${AddToCart} {
+  ${NextButton} {
     padding: 0.4rem 0.5rem;
     border-radius: 10px;
     font-size: 0.8rem;

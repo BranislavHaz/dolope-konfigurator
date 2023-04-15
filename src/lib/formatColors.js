@@ -31,3 +31,20 @@ export const rgbaToText = (rgba, opacity = 0.15) => {
       return "black";
   }
 };
+
+export const localizeText = (text) => {
+  switch (text) {
+    case "blue":
+      return "modrá";
+    case "pink":
+      return "ružová";
+    case "gray":
+      return "sivá";
+    case "beige":
+      return "béžová";
+    case "white":
+      return "biela";
+    default:
+      return "nešpecifikovaná";
+  }
+};

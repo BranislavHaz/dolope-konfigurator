@@ -1,6 +1,6 @@
 import React from "react";
 import SectionDivider from "../SectionDivider";
-import AddToCart from "./AddToCart";
+import NextButton from "./NextButton";
 
 import { useNewbornStore } from "../PosterStore";
 
@@ -236,7 +236,7 @@ const PosterConfig = () => {
           </$.Font>
         </$.FontSet>
       </SectionDivider>
-      <AddToCart />
+      <NextButton />
     </$.PosterConfig>
   );
 };
