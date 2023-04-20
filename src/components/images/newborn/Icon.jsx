@@ -7,7 +7,7 @@ import { ReactComponent as IconSize } from "assets/images/newborn/iconSizes.svg"
 import { ReactComponent as IconData } from "assets/images/newborn/iconData.svg";
 import { ReactComponent as IconColor } from "assets/images/newborn/iconColors.svg";
 import { ReactComponent as IconFont } from "assets/images/newborn/iconFonts.svg";
-import { ReactComponent as IconLogo } from "assets/images/newborn/logo-dolope.svg";
+import { ReactComponent as IconLogo } from "assets/images/newborn/logo-dolope-new.svg";
 import { ReactComponent as IconPrice } from "assets/images/newborn/iconPrice.svg";
 
 const Icon = ({ icon, color }) => {

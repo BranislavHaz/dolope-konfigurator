@@ -16,6 +16,7 @@ const newbornState = {
   font: "Amatic SC",
   menuActive: false,
   firstLoad: true,
+  fullSeries: false,
 };
 
 export const useNewbornStore = create(
@@ -35,6 +36,7 @@ export const useNewbornStore = create(
     setFont: (font) => set({ font }),
     setMenuActive: (menuActive) => set({ menuActive }),
     setFirstLoad: (firstLoad) => set({ firstLoad }),
+    setFullSeries: (fullSeries) => set({ fullSeries }),
     removeAll: () =>
       set({ name: "", date: "", time: "", weight: "", length: "" }),
   }))

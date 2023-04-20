@@ -39,8 +39,18 @@ const PosterConfig = () => {
     setFrame(!frame);
   };
 
+  const handleClick = (e) => {
+    if (e.target === e.currentTarget) {
+      setMenuActive(false);
+    }
+  };
+
   return (
-    <$.PosterConfig isActive={menuActive} isFirstLoad={firstLoad}>
+    <$.PosterConfig
+      isActive={menuActive}
+      isFirstLoad={firstLoad}
+      onClick={handleClick}
+    >
       <$.Title>
         <$.Title1Line>Vytvor</$.Title1Line>
         <$.Title2Line>si vlastný dizajn</$.Title2Line>

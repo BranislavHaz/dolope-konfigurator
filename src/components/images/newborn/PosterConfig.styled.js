@@ -283,10 +283,6 @@ export const Color = styled.div`
   box-shadow: ${({ isActive }) =>
     isActive ? `#5b5b5b 0px 0px 0px 2px` : "inset 0 1px 2px #ddd"};
 
-  &:hover {
-    box-shadow: inset 0 2px 3px #ddd;
-  }
-
   @media ${vars.DEVICES.mobileS} and (orientation: portrait) {
     width: 2.3rem;
     height: 2.3rem;
@@ -303,6 +299,10 @@ export const Color = styled.div`
     width: 2.8rem;
     height: 2.8rem;
     margin-right: 0.3rem;
+
+    &:hover {
+      box-shadow: inset 0 2px 3px #ddd;
+    }
   }
 
   @media ${vars.DEVICES.laptopL} {
