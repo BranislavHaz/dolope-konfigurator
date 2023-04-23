@@ -1,13 +1,13 @@
 export const formatIndexImage = (index) => {
   switch (index) {
     case 0:
-      return "Kids Collection";
+      return "Traffic";
     case 1:
       return "Newborn Girl";
     case 2:
       return "Newborn Boho";
     case 3:
-      return "Traffic";
+      return "Kids Collection";
     case 4:
       return "Safari";
     case 5:

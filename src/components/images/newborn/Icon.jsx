@@ -1,14 +1,15 @@
 import React from "react";
-import { ReactComponent as IconDate } from "assets/images/newborn/iconDate.svg";
-import { ReactComponent as IconLength } from "assets/images/newborn/iconLength.svg";
-import { ReactComponent as IconTime } from "assets/images/newborn/iconTime.svg";
-import { ReactComponent as IconWeight } from "assets/images/newborn/iconWeight.svg";
-import { ReactComponent as IconSize } from "assets/images/newborn/iconSizes.svg";
-import { ReactComponent as IconData } from "assets/images/newborn/iconData.svg";
-import { ReactComponent as IconColor } from "assets/images/newborn/iconColors.svg";
-import { ReactComponent as IconFont } from "assets/images/newborn/iconFonts.svg";
-import { ReactComponent as IconLogo } from "assets/images/newborn/logo-dolope-new.svg";
-import { ReactComponent as IconPrice } from "assets/images/newborn/iconPrice.svg";
+import { ReactComponent as IconDate } from "assets/icons/iconDate.svg";
+import { ReactComponent as IconLength } from "assets/icons/iconLength.svg";
+import { ReactComponent as IconTime } from "assets/icons/iconTime.svg";
+import { ReactComponent as IconWeight } from "assets/icons/iconWeight.svg";
+import { ReactComponent as IconSize } from "assets/icons/iconSizes.svg";
+import { ReactComponent as IconData } from "assets/icons/iconData.svg";
+import { ReactComponent as IconColor } from "assets/icons/iconColors.svg";
+import { ReactComponent as IconFont } from "assets/icons/iconFonts.svg";
+import { ReactComponent as IconLogo } from "assets/logos/logo-dolope.svg";
+import { ReactComponent as IconPrice } from "assets/icons/iconPrice.svg";
+import { ReactComponent as IconPreview } from "assets/icons/iconPreview.svg";
 
 const Icon = ({ icon, color }) => {
   switch (icon) {
@@ -32,6 +33,8 @@ const Icon = ({ icon, color }) => {
       return <IconLogo />;
     case "price":
       return <IconPrice />;
+    case "preview":
+      return <IconPreview fill={color} />;
     default:
       break;
   }

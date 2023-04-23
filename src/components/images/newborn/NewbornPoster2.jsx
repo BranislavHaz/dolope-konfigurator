@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { useNewbornStore } from "../PosterStore";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectCoverflow } from "swiper";
@@ -17,18 +18,20 @@ import AddToCart from "./AddToCart";
 SwiperCore.use([EffectCoverflow]);
 
 const NewbornPoster2 = () => {
+  const { pathname } = useLocation();
   const { size } = useNewbornStore((state) => state);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const getOldPrice = () => {
     return size === "a4" ? 8 * 3 : 13 * 3;
   };
 
   const getNewPrice = () => {
-    const oldPrice = getOldPrice();
-    return Math.round(oldPrice * 0.7 * 100) / 100;
+    return size === "a4" ? 8 * 2 : 13 * 2;
   };
-
-  const addToCart = (type) => {};
 
   return (
     <$.Page>
@@ -36,8 +39,8 @@ const NewbornPoster2 = () => {
       <MobileNav step={2} />
       <$.TitleWrap>
         <$.Title>
-          Kúp si celú sériu 3 obrazov a
-          <$.TitleHighlight> ušetri až 30% </$.TitleHighlight>z celkovej ceny
+          Kúp si celú sériu 3 obrazov a 1 máš
+          <$.TitleHighlight>ZADARMO</$.TitleHighlight>.
         </$.Title>
       </$.TitleWrap>
       <$.PostersWrap>
@@ -84,8 +87,6 @@ const NewbornPoster2 = () => {
           <$.NewPrice>{getNewPrice()}€</$.NewPrice>
         </$.PriceWrap>
         <AddToCart />
-        {/* <$.AddToCart>Kúpiť celú sériu</$.AddToCart>
-        <$.Reject>Ďakujem, chcem len 1 obraz</$.Reject> */}
       </$.Content>
     </$.Page>
   );

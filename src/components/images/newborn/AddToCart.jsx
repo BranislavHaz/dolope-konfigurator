@@ -34,11 +34,11 @@ const AddToCart = () => {
     "Čas narodenia": time,
     Váha: `${weight.toString().replace(/\./g, ",")} kg`,
     Dĺžka: `${length} cm`,
-    "Vlastný text": text,
+    Venovanie: text,
     "Farba pozadia": localizeText(backgroundColor),
     "Hlavná farba": localizeText(mainColor),
     "Font písma": font,
-    Orámovanie: frame ? "áno" : "nie",
+    "Okraj na obraze": frame ? "áno" : "nie",
   };
 
   const getIdImage = (type) => {

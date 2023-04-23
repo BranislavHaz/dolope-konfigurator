@@ -465,3 +465,32 @@ export const CloseMenu = styled.span`
     display: none;
   }
 `;
+
+export const ShowPreview = styled.div`
+  justify-content: center;
+  width: 100%;
+  font-family: Poppins;
+  font-size: 1rem;
+  display: ${({ isActive }) => (isActive ? "flex" : "none")};
+  color: rgba(132, 154, 141, 0.5);
+  z-index: 2;
+
+  @media ${vars.DEVICES.laptop} {
+    display: none;
+  }
+`;
+
+export const ShowPreviewButton = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.5rem;
+  border-radius: 10px;
+  border: 0.1rem solid rgba(132, 154, 141, 0.3);
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    opacity: 0.65;
+    margin-right: 0.5rem;
+  }
+`;

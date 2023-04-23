@@ -1,6 +1,7 @@
 import React from "react";
 import SectionDivider from "../SectionDivider";
 import NextButton from "./NextButton";
+import Icon from "./Icon";
 
 import { useNewbornStore } from "../PosterStore";
 
@@ -55,7 +56,6 @@ const PosterConfig = () => {
         <$.Title1Line>Vytvor</$.Title1Line>
         <$.Title2Line>si vlastný dizajn</$.Title2Line>
       </$.Title>
-      <$.CloseMenu isActive={menuActive} onClick={() => setMenuActive(false)} />
       <SectionDivider
         title="Veľkosť obrazu"
         isActive={menuActive === "size" ? true : false}
@@ -123,7 +123,7 @@ const PosterConfig = () => {
           </$.Label>
         </$.LabelFlex>
         <$.Label cursor="text">
-          Odkaz:
+          Venovanie:
           <textarea
             rows="6"
             value={text}
@@ -186,7 +186,7 @@ const PosterConfig = () => {
             isActive={backgroundColor === "white"}
           />
         </$.ColorSet>
-        <$.Subtitle>Orámovanie:</$.Subtitle>
+        <$.Subtitle>Okraj na obraze:</$.Subtitle>
         <$.SwitcherWrapper>
           <$.SwitcherInput
             id="checkbox"
@@ -246,6 +246,16 @@ const PosterConfig = () => {
           </$.Font>
         </$.FontSet>
       </SectionDivider>
+      {/* <$.CloseMenu isActive={menuActive} onClick={() => setMenuActive(false)} /> */}
+      <$.ShowPreview
+        isActive={menuActive ? true : false}
+        onClick={() => setMenuActive(false)}
+      >
+        <$.ShowPreviewButton>
+          <Icon icon="preview" color={"rgba(132, 154, 141, 0.5)"} />
+          Zobraziť náhľad
+        </$.ShowPreviewButton>
+      </$.ShowPreview>
       <NextButton />
     </$.PosterConfig>
   );
