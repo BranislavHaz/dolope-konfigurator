@@ -52,8 +52,12 @@ export const PostersWrap = styled.div`
   }
 `;
 
+//laptop
 export const PostersMobile = styled.div`
   @media ${vars.DEVICES.laptop} {
+    display: none;
+  }
+  @media ${vars.DEVICES.mobileS} and (orientation: landscape) {
     display: none;
   }
 `;
@@ -62,6 +66,13 @@ export const PostersLaptop = styled.div`
   display: none;
 
   @media ${vars.DEVICES.laptop} {
+    margin: 1em 0;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+  }
+
+  @media ${vars.DEVICES.mobileS} and (orientation: landscape) {
     margin: 1em 0;
     display: flex;
     justify-content: center;

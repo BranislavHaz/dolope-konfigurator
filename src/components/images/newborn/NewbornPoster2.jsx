@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useNewbornStore } from "../PosterStore";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { EffectCoverflow } from "swiper";
+import SwiperCore, { EffectCoverflow, Navigation, Pagination } from "swiper";
 import * as $ from "./NewbornPoster2.styled";
 
 import "swiper/css";
@@ -46,8 +46,9 @@ const NewbornPoster2 = () => {
       <$.PostersWrap>
         <$.PostersMobile>
           <Swiper
+            modules={[Pagination, Navigation]}
             initialSlide={1}
-            navigation
+            navigation={true}
             pagination={{ clickable: true }}
             effect="coverflow"
             coverflowEffect={{
